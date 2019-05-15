@@ -4,3 +4,4 @@ This repository contains random scripts to learn and test new methods. All of th
 # History
 - 6 April 2019: Repository created.
 - 11 April 2019: "01_BidirectionalPrediction" folder created.
+- 15 May 2019: "02_RegularizedSmap" folder created.
