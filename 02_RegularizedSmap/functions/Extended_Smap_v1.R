@@ -8,7 +8,8 @@
 
 #---------- History ----------#
 # 2019.05.15: Fisrt implementation of Regularized S-map
-#             Rely on the use of "glmnet" package of R  
+#             Rely on the use of "glmnet" package of R
+# 2019.05.16: "weights" option in "glmnet" and "cv.glmnet" functions revised
 #-----------------------------#
 
 extended_smap <- function(vectors,
@@ -61,34 +62,34 @@ extended_smap <- function(vectors,
       # do regularized S-map
       # Currently rely on "glmnet" package of R
       if(E == 1){
-        A <- cbind(vectors[lib_indices,], 1) * c_ws
-        B <- cbind(target[lib_indices]) * c_ws
+        A <- cbind(vectors[lib_indices,], 1)# * c_ws
+        B <- cbind(target[lib_indices])# * c_ws
         
         if(is.null(lambda)){
           # make prediction
-          fit <- cv.glmnet(A, B, type.measure = "mae", alpha = alpha, family = "gaussian", nfolds = 10,
+          fit <- cv.glmnet(A, B, weights = c_ws, type.measure = "mae", alpha = alpha, family = "gaussian", nfolds = 10,
                            parallel = glmnet_parallel, intercept = TRUE)
           pred_vals[p] <- predict(fit, s = fit$lambda.min, newx = matrix(c(vectors[p,], 1), nrow = 1))
           smap_coefficient_vals[p,] <- matrix(t(coef(fit, s = fit$lambda.min)), nrow = 1)[c(2,1)]
         }else{
           # make prediction
-          fit <- glmnet(A, B, alpha = alpha, family = "gaussian", lambda = lambda, intercept = TRUE)
+          fit <- glmnet(A, B, weights = c_ws, alpha = alpha, family = "gaussian", lambda = lambda, intercept = TRUE)
           pred_vals[p] <- predict(fit, s = fit$lambda, newx = matrix(c(vectors[p,], 1), nrow = 1))
           smap_coefficient_vals[p,] <- matrix(t(coef(fit, s = fit$lambda)), nrow = 1)[c(2,1)]
         }
       }else{
-        A <- cbind(vectors[lib_indices,]) * c_ws
-        B <- cbind(target[lib_indices]) * c_ws
+        A <- cbind(vectors[lib_indices,])# * c_ws
+        B <- cbind(target[lib_indices])# * c_ws
         
         if(is.null(lambda)){
           # make prediction
-          fit <- cv.glmnet(A, B, type.measure = "mae", alpha = alpha, family = "gaussian", nfolds = 10,
+          fit <- cv.glmnet(A, B, weights = c_ws, type.measure = "mae", alpha = alpha, family = "gaussian", nfolds = 10,
                            parallel = glmnet_parallel, intercept = TRUE)
           pred_vals[p] <- predict(fit, s = fit$lambda.min, newx = matrix(c(vectors[p,]), nrow = 1))
           smap_coefficient_vals[p,] <- matrix(t(coef(fit, s = fit$lambda.min)), nrow = 1)[c(2:(NCOL(vectors)+1),1)]
         }else{
           # make prediction
-          fit <- glmnet(A, B, alpha = alpha, family = "gaussian", lambda = lambda, intercept = TRUE)
+          fit <- glmnet(A, B, weights = c_ws, alpha = alpha, family = "gaussian", lambda = lambda, intercept = TRUE)
           pred_vals[p] <- predict(fit, s = fit$lambda, newx = matrix(c(vectors[p,]), nrow = 1))
           smap_coefficient_vals[p,] <- matrix(t(coef(fit, s = fit$lambda)), nrow = 1)[c(2:(NCOL(vectors)+1),1)]
         }
