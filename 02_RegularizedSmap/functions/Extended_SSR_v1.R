@@ -83,7 +83,7 @@ extended_lnlp <- function(block_time,
       colnames(smap_coef_df)[2:(dim(smap_out$smap_coefficients)[2]+1)] <- colnames(smap_out$smap_coefficients)
       
       return(list(model_output = pred_df, stats = stats,
-                  smap_coefficients = smap_out$smap_coefficients))
+                  smap_coefficients = smap_coef_df))
     }else{
       return(list(model_output = pred_df, stats = stats))
     }
