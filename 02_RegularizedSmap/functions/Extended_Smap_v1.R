@@ -10,6 +10,7 @@
 # 2019.05.15: Fisrt implementation of Regularized S-map
 #             Rely on the use of "glmnet" package of R
 # 2019.05.16: "weights" option in "glmnet" and "cv.glmnet" functions revised
+# 2019.05.23: CV criterion, "lambda.min", has been changed to "lambda.1se"
 #-----------------------------#
 
 extended_smap <- function(vectors,
@@ -19,7 +20,7 @@ extended_smap <- function(vectors,
                           theta,
                           regularized = FALSE,
                           lambda = NULL,
-                          alpha = 0, # default is the ridge regression. If alpha = 1, then do lasso regression
+                          alpha = 0, # default is the ridge regression. If alpha = 1, it will be the lasso regression
                           glmnet_parallel = FALSE, # require(doParallel)
                           save_smap_coefficients = FALSE)
 {
@@ -69,8 +70,8 @@ extended_smap <- function(vectors,
           # make prediction
           fit <- cv.glmnet(A, B, weights = c_ws, type.measure = "mae", alpha = alpha, family = "gaussian", nfolds = 10,
                            parallel = glmnet_parallel, intercept = TRUE)
-          pred_vals[p] <- predict(fit, s = fit$lambda.min, newx = matrix(c(vectors[p,], 1), nrow = 1))
-          smap_coefficient_vals[p,] <- matrix(t(coef(fit, s = fit$lambda.min)), nrow = 1)[c(2,1)]
+          pred_vals[p] <- predict(fit, s = fit$lambda.1se, newx = matrix(c(vectors[p,], 1), nrow = 1))
+          smap_coefficient_vals[p,] <- matrix(t(coef(fit, s = fit$lambda.1se)), nrow = 1)[c(2,1)]
         }else{
           # make prediction
           fit <- glmnet(A, B, weights = c_ws, alpha = alpha, family = "gaussian", lambda = lambda, intercept = TRUE)
@@ -85,8 +86,8 @@ extended_smap <- function(vectors,
           # make prediction
           fit <- cv.glmnet(A, B, weights = c_ws, type.measure = "mae", alpha = alpha, family = "gaussian", nfolds = 10,
                            parallel = glmnet_parallel, intercept = TRUE)
-          pred_vals[p] <- predict(fit, s = fit$lambda.min, newx = matrix(c(vectors[p,]), nrow = 1))
-          smap_coefficient_vals[p,] <- matrix(t(coef(fit, s = fit$lambda.min)), nrow = 1)[c(2:(NCOL(vectors)+1),1)]
+          pred_vals[p] <- predict(fit, s = fit$lambda.1se, newx = matrix(c(vectors[p,]), nrow = 1))
+          smap_coefficient_vals[p,] <- matrix(t(coef(fit, s = fit$lambda.1se)), nrow = 1)[c(2:(NCOL(vectors)+1),1)]
         }else{
           # make prediction
           fit <- glmnet(A, B, weights = c_ws, alpha = alpha, family = "gaussian", lambda = lambda, intercept = TRUE)
