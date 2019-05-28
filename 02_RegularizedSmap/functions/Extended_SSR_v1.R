@@ -24,6 +24,8 @@ extended_lnlp <- function(block_time,
                           lambda = NULL,
                           alpha = 0, # default is the ridge regression. If alpha = 1, then do lasso regression
                           glmnet_parallel = FALSE,
+                          random_seed = NULL,
+                          no_parallel = glmnet_parallel,
                           save_smap_coefficients = FALSE)
 {
   # do multivariate prediction using s-map
@@ -67,6 +69,8 @@ extended_lnlp <- function(block_time,
                               lambda = lambda,
                               alpha = alpha,
                               glmnet_parallel = glmnet_parallel,
+                              random_seed = random_seed,
+                              no_parallel = no_parallel,
                               save_smap_coefficients = save_smap_coefficients)
     pred_df <- data.frame(time = 1:nrow(vectors),
                           obs = c(rep(NaN, tp), head(target, n = n - tp)),
