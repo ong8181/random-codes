@@ -12,7 +12,7 @@ set.seed(ran_seed)
 # Load packages
 library(rEDM); packageVersion("rEDM") # 0.7.4, 2019.5.15
 library(glmnet); packageVersion("glmnet") # 2.0.16, 2019.5.15
-library(doParallel); packageVersion("doParallel")
+library(doParallel); packageVersion("doParallel") # 1.0.14, 2019.5.28
 
 # Load pacakges for visualization
 library(ggplot2); packageVersion("ggplot2") # 3.1.0, 2019.5.15
