@@ -1,6 +1,6 @@
 ####
 #### Implementation of regularized S-map
-#### Originally introduced in Cenci et al. (2019) Methods in Ecology and Evolution
+#### Originally introduced by Cenci et al. (2019) Methods in Ecology and Evolution
 #### see https://doi.org/10.1111/2041-210X.13150
 ####
 #### 2019.05.15 Masayuki Ushio
@@ -11,6 +11,7 @@
 #             Rely on the use of "glmnet" package of R
 # 2019.05.16: "weights" option in "glmnet" and "cv.glmnet" functions revised
 # 2019.05.23: CV criterion, "lambda.min", has been changed to "lambda.1se"
+# 2019.05.28: Parallel version implemented
 #-----------------------------#
 
 extended_smap <- function(vectors,
