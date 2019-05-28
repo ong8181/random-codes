@@ -57,7 +57,7 @@ extended_smap <- function(vectors,
   }
 
   #-------------------- Main loop to make predictions --------------------#
-    make_one_predict_standard <- function(p)
+    make_one_predict <- function(p)
     {
       if (!is.null(random_seed)) set.seed(p_seeds[p])
 
@@ -134,7 +134,7 @@ extended_smap <- function(vectors,
     {
       `%dopar%` <- foreach::`%dopar%`
       all_predicted <- foreach::foreach(p = which(pred_indices), .packages = "glmnet") %dopar%
-                                  make_one_predict_standard(p)
+                                  make_one_predict(p)
       for (predicted in all_predicted)
       {
         pred_vals[predicted$p] <- predicted$pred_val
@@ -143,7 +143,7 @@ extended_smap <- function(vectors,
     } else {
       for (p in which(pred_indices))
       {
-        predicted <- make_one_predict_standard(p)
+        predicted <- make_one_predict(p)
         pred_vals[p] <- predicted$pred_val
         smap_coefficient_vals[p,] <- predicted$smap_coefficient_val
       }
