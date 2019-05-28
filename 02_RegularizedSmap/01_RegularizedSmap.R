@@ -12,6 +12,7 @@ set.seed(ran_seed)
 # Load packages
 library(rEDM); packageVersion("rEDM") # 0.7.4, 2019.5.15
 library(glmnet); packageVersion("glmnet") # 2.0.16, 2019.5.15
+library(doParallel); packageVersion("doParallel")
 
 # Load pacakges for visualization
 library(ggplot2); packageVersion("ggplot2") # 3.1.0, 2019.5.15
@@ -48,6 +49,10 @@ y1_redm <- block_lnlp(block_y1, theta = theta_test, method = "s-map", silent = T
 
 
 #---------- Manual implementation of the regularized S-map ----------#
+# Register cores
+cl <- parallel::makeCluster(4)
+doParallel::registerDoParallel(cl)
+
 # Prepare result objects
 y1_smap_stats <- y1_ridge_stats <- y1_lasso_stats <-
   data.frame(theta = NA, lambda = NA, N = NA, rho = NA, mae = NA, rmse = NA)
@@ -59,11 +64,11 @@ for(i in 1:length(theta_test))
   for(j in 1:length(lambda_test))
   {
     y1_smap <- extended_lnlp(block_y1, theta = theta_test[i], lambda = lambda_test[j],
-                             method = "s-map", regularized = F)
+                             method = "s-map", regularized = F, random_seed = ran_seed, no_parallel = FALSE)
     y1_ridge <- extended_lnlp(block_y1, theta = theta_test[i], lambda = lambda_test[j],
-                              method = "s-map", regularized = T, alpha = 0)
+                              method = "s-map", regularized = T, alpha = 0, random_seed = ran_seed, no_parallel = FALSE)
     y1_lasso <- extended_lnlp(block_y1, theta = theta_test[i], lambda = lambda_test[j],
-                              method = "s-map", regularized = T, alpha = 1)
+                              method = "s-map", regularized = T, alpha = 1, random_seed = ran_seed, no_parallel = FALSE)
     
     # Summarize results
     y1_smap_stats[((i-1)*8+j),] <- data.frame(theta = theta_test[i], lambda = lambda_test[j], y1_smap$stats)
@@ -72,6 +77,7 @@ for(i in 1:length(theta_test))
   }
 }
 
+parallel::stopCluster(cl)
 
 #---------- Compare results ----------#
 # Check rEDM results
