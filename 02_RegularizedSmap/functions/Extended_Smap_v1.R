@@ -34,8 +34,7 @@ extended_smap <- function(vectors,
 
   # setup output
   pred_vals <- rep.int(NaN, times = length(target))
-  smap_coefficient_vals <- matrix(NaN, ncol = NCOL(vectors) + 1,
-                                  nrow = length(target))
+  smap_coefficient_vals <- matrix(NaN, ncol = NCOL(vectors) + 1, nrow = length(target))
 
   # exclude libs that contains NaN in target
   lib_nona <- !apply(cbind(vectors, target), 1, function(x) any(is.na(x)))
