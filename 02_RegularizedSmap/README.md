@@ -12,7 +12,20 @@ Regularized S-map can be performed using extended_lnlp() function. The default s
 ``` r
 extended_lnlp(block_time,
               lib = c(1, NROW(block_time)),
-              pred = lib, tp = 1, target_column = 1, lib_column = 1:NCOL(block_time), num_neighbors = NCOL(block_time) + 1, theta = 0, method = "s-map", regularized = FALSE, lambda = NULL, alpha = 0, glmnet_parallel = FALSE, random_seed = NULL, no_parallel = glmnet_parallel, save_smap_coefficients = FALSE)
+              pred = lib,
+              tp = 1,
+              target_column = 1,
+              lib_column = 1:NCOL(block_time),
+              num_neighbors = NCOL(block_time) + 1,
+              theta = 0,
+              method = "s-map",
+              regularized = FALSE,
+              lambda = NULL,
+              alpha = 0,
+              glmnet_parallel = FALSE,
+              random_seed = NULL,
+              no_parallel = glmnet_parallel,
+              save_smap_coefficients = FALSE)
 ```
 
 Here are descriptions of some important parameters:
