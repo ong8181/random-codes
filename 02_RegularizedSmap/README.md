@@ -13,7 +13,7 @@ extended_lnlp(block_time, lib = c(1, NROW(block_time)), pred = lib, tp = 1, targ
 
 Here are descriptions of some important parameters:
 - block_time: Dataframe or matrix.
-- method: Specify method to make predictions (currently only "s-map" can be used).
+- method: Specify method to make predictions (currently only "s-map" is valid).
 - theta: Nonlinearity parameter for S-map.
 - regularized: Specify whether regularized or standard S-map is used.
 - lambda: Tuning parameter for regularization. If lambda = 0, there will be no regularization.
