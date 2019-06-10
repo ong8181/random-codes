@@ -33,7 +33,7 @@ Here are descriptions of some important parameters:
 - `method`: Specify method to make predictions (currently only "s-map" is valid).
 - `theta`: Nonlinearity parameter for S-map.
 - `regularized`: Specify whether regularized or standard S-map is used.
-- `lambda`: Tuning parameter for regularization. If lambda = 0, there will be no regularization.
-- `alpha`: Tuning parameter for elastic net. If alpha = 0, ridge regression will be performed. If alpha = 1, lasso regression will be performed.
+- `lambda`: Tuning parameter for regularization. If `lambda = 0`, there will be no regularization. If `lambda = NULL`, optimal `lambda` is determined for each prediction using k-fold cross validation (currently this option is not recommended).
+- `alpha`: Tuning parameter for elastic net. If `alpha = 0`, ridge regression will be performed. If `alpha = 1`, lasso regression will be performed.
 - `random_seed`: Set this seed to reproduce results of the parallel computation mode.
-- `no_parallel`: If FALSE, then the computation will be parallel.
+- `no_parallel`: If `FALSE`, then the computation will be parallel.
