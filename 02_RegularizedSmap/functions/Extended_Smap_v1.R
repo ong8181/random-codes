@@ -12,6 +12,7 @@
 # 2019.05.16: "weights" option in "glmnet" and "cv.glmnet" functions revised
 # 2019.05.23: CV criterion, "lambda.min", has been changed to "lambda.1se"
 # 2019.05.28: Parallel version implemented
+# 2019.08.28: Bug fixed
 #-----------------------------#
 
 extended_smap <- function(vectors,
@@ -79,8 +80,8 @@ extended_smap <- function(vectors,
         # Currently rely on "glmnet" package of R
         if (E == 1)
         {
-          A <- cbind(vectors[lib_indices,], 1)
-          B <- cbind(target[lib_indices])
+          A <- cbind(vectors[libs,], 1)
+          B <- cbind(target[libs])
           if(is.null(lambda)){
             # make prediction
             fit <- cv.glmnet(A, B, weights = c_ws, type.measure = "mae", alpha = alpha, family = "gaussian", nfolds = 10,
