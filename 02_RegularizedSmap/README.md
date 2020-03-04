@@ -1,5 +1,5 @@
 # Manual implementation of the regularized S-map
-The regularized S-map has been implemented according to Cenci et al. (2019) <i>Methods in Ecology and Evolution</i> (https://doi.org/10.1111/2041-210X.13150)
+The regularized S-map implemented according to Cenci et al. (2019) <i>Methods in Ecology and Evolution</i> (https://doi.org/10.1111/2041-210X.13150)
 
 Currently, the regularization relies on "glmnet" package of R.
 
