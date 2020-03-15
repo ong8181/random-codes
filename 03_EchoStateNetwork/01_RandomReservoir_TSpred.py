@@ -1,8 +1,8 @@
 ####
-#### Reservoir computing implemented with pure python
+#### Reservoir computing implemented with python
 ####
 
-# Import essential modules
+# Import modules
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt # For visualization only
