@@ -1,5 +1,5 @@
 ####
-#### Reservoir computing implemented with python
+#### Echo State Network (Reservoir computing) implemented with python
 ####
 
 # Import modules
