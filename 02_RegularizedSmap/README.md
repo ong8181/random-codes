@@ -7,7 +7,7 @@ Currently, the regularization relies on "glmnet" package of R.
 Regularized S-map functions are in "functions" folder, and they are tested in 01_RegularizedSmap.R. Accordign to a test using a subset of the data in Ushio et al. (2018) (see "data" folder), ridge (or lasso) S-map shows a better performance than the standard S-map, which is consistent with Cenci et al. (2019) (run 01_RegularizedSmap.R or see "figs" folder). Current implementations of the regularized and standard S-map are much slower than the standard S-map in rEDM package of R.
 
 ## Usage
-Regularized S-map can be performed using extended_lnlp() function. The default setting of extended_lnlp() function is as follows (it has similar parameters to block_lnlp() function in rEDM package):
+Regularized S-map can be performed using ```extended_lnlp()``` function. The default setting of ```extended_lnlp()``` function is as follows (it has similar parameters to ```block_lnlp()``` function in rEDM package):
 
 ``` r
 extended_lnlp(block_time,
