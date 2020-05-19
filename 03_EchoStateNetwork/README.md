@@ -8,3 +8,4 @@ For time series prediction, time series data to be predicted is chaotic model ti
 For MNIST image classification, the algorithm is similar to that presented in Schaetti et al. (2016) https://hal.archives-ouvertes.fr/hal-02131170. MNIST image data can be downloaded by excuting ```mnist = datasets.fetch_openml('mnist_784', version=1,)```.
 
 - 2020.05.03: Script of the MNIST classification needs to be revised. NOT done yet.
+- 2020.05.19: The MNIST classification code revised.
