@@ -9,16 +9,15 @@ import matplotlib.pyplot as plt # For visualization only
 from scipy import linalg
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split # For data selection
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
 
 # Define functions
 ## Generate a random internal weight matrix W0 ------------------------------#
 def generate_random_W(num_reservoir_nodes, alpha, sparsity):
-    np.random.seed(seed=20200220)
-    W0 = np.random.uniform(-1, 1, (num_reservoir_nodes * num_reservoir_nodes, 1))
-    np.random.seed(seed=20200220)
-    rand_id = np.random.randint(0, W0.shape[0], int(num_reservoir_nodes * num_reservoir_nodes * sparsity))
-    W0[rand_id] = 0
-    W1 = W0.reshape(num_reservoir_nodes, num_reservoir_nodes)
+    np.random.seed(1235); W0 = np.random.uniform(-1, 1, (num_reservoir_nodes * num_reservoir_nodes, 1))
+    np.random.seed(1235); rand_id = np.random.choice(W0.shape[0], int(num_reservoir_nodes * num_reservoir_nodes * sparsity), replace = False)
+    W0[rand_id] = 0; W1 = W0.reshape(num_reservoir_nodes, num_reservoir_nodes)
     ## Normalize W0 using spectral radius
     W2 = W1 / abs(np.linalg.eig(W1)[0]).max()
     ## Scale W1 to W using alpha
@@ -32,14 +31,6 @@ def calculate_next_state(input_value, reservoir_nodes_t0, input_W, reservoir_W, 
     t0 = np.array(reservoir_nodes_t0)
     t1 = leak @ t0 + np.tanh([input_value] @ input_W + (I - leak) @ t0 @ reservoir_W + 1)
     return(t1)
-#---------------------------------------------------------------------------#
-
-## Adjust output using regularized regression ------------------------------#
-def adjust_output(teacher_signal, reservoir_node_log, ridge_lambda):
-    E_lambda = np.identity(reservoir_node_log.shape[1]) * ridge_lambda
-    inv_x = np.linalg.inv(reservoir_node_log.T @ reservoir_node_log + E_lambda)
-    output_W = (inv_x @ reservoir_node_log.T) @ teacher_signal
-    return(output_W)
 #---------------------------------------------------------------------------#
 
 
@@ -77,20 +68,21 @@ std_data = (data - data.min()) / data.max()  ## Data standardization
 # Total 70,000 images
 label = mnist.target[range(subset_size)]
 label = [ int(x) for x in label ] # Convert the label into integer
-one_hot_label = np.identity(10)[label] # Convert the label into "label matrix"
+#one_hot_label = np.identity(10)[label] # Convert the label into "label matrix"
 
 # Show MNIST data examples
 #plt.imshow(data[0].reshape(28, 28), cmap='gray'); plt.show()
 #plt.imshow(x_train[1].reshape(28, 28), cmap='gray'); plt.show()
 
 # Split data into training data set and test data set
-x_train, x_test, t_train, t_test = train_test_split(std_data, one_hot_label, test_size = test_fraction)
+#x_train, x_test, t_train, t_test = train_test_split(std_data, one_hot_label, test_size = test_fraction)
+x_train, x_test, t_train, t_test = train_test_split(std_data, label, test_size = test_fraction)
 
 # Secondary parameters
 I = np.identity(num_reservoir_nodes)
 R = I * leak_rate
-np.random.seed(seed=0); W_in0 = np.random.uniform(-1, 1, (num_input_nodes * num_reservoir_nodes, 1))
-np.random.seed(seed=0); rand_id = np.random.randint(0, W_in0.shape[0], int(num_input_nodes * num_reservoir_nodes * Win_sparsity))
+np.random.seed(1234); W_in0 = np.random.uniform(-1, 1, (num_input_nodes * num_reservoir_nodes, 1))
+np.random.seed(1234); rand_id = np.random.choice(W_in0.shape[0], int(num_input_nodes * num_reservoir_nodes * Win_sparsity), replace = False)
 W_in0[rand_id] = 0; W_in = W_in0.reshape(num_input_nodes, num_reservoir_nodes) * w_in_strength
 
 # -------------------- 3. Implementation of Echo state netowrk -------------------- #
@@ -120,11 +112,12 @@ for image_i, input_train_image in enumerate(x_train):
 record_reservoir_nodes = record_reservoir_nodes[1:]
 record_res_reshape = record_reservoir_nodes.reshape(int(subset_size * (1-test_fraction)), int(num_reservoir_nodes * 28))
 
-# Step.3: Compute output weights using ridge Regression
-weights_output = adjust_output(t_train, record_res_reshape, ridge_lambda = lambda0)
-
-# Step.4: Check trained results
-outputs = record_res_reshape @ weights_output
+# Step.4: Compute output weights using softmax regression
+logistic_model = LogisticRegression(max_iter = 500, solver = 'newton-cg', multi_class = 'auto', penalty = "l2", C = 1)
+logistic_model.fit(record_res_reshape, t_train)
+learned_model = logistic_model
+# Calculate prediction accuracy for training data
+train_predict_value = round(accuracy_score(t_train, learned_model.predict(record_res_reshape)), 4)
 
 # Step.5: Exploitation
 record_reservoir_test_nrow = int((subset_size * test_fraction)*28 + 1)
@@ -140,26 +133,9 @@ for image_i, input_test_image in enumerate(x_test):
 
 record_test_reservoir_nodes = record_test_reservoir_nodes[1:]
 record_test_reshape = record_test_reservoir_nodes.reshape(int(subset_size*test_fraction), int(num_reservoir_nodes * 28))
-predicted_outputs = record_test_reshape @ weights_output
+test_predict_value = round(accuracy_score(t_test, learned_model.predict(record_test_reshape)), 4)
 
-# -------------------- 4. Calculate summary statistics -------------------- #
-train_pred = train_true = []
-for i in range(int(subset_size * (1-test_fraction))):
-    train_pred = np.append(train_pred, outputs[i,].argmax())
-    train_true = np.append(train_true, t_train[i,].argmax())
-
-test_pred = test_true = []
-for i in range(int(subset_size*test_fraction)):
-    test_pred = np.append(test_pred, predicted_outputs[i,].argmax())
-    test_true = np.append(test_true, t_test[i,].argmax())
-
-# Compare trained and test results
-train_res = np.array(train_pred) - np.array(train_true)
-test_res = np.array(test_pred) - np.array(test_true)
-train_predict_value = round(sum(train_res == 0) / train_res.shape[0], 4)
-test_predict_value = round(sum(test_res == 0) / test_res.shape[0], 4)
-
-# -------------------- 5. Summarize results -------------------- #
+# -------------------- 4. Summarize results -------------------- #
 all_predict_outputs.append(np.array([train_predict_value, test_predict_value,
                                      num_reservoir_nodes, alpha, w_in_strength,
                                      round(leak_rate, 2), Win_sparsity,
