@@ -1,0 +1,44 @@
+R version 4.0.2 (2020-06-22)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 18.04.4 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3
+LAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3
+
+locale:
+ [1] LC_CTYPE=ja_JP.UTF-8       LC_NUMERIC=C               LC_TIME=ja_JP.UTF-8       
+ [4] LC_COLLATE=ja_JP.UTF-8     LC_MONETARY=ja_JP.UTF-8    LC_MESSAGES=ja_JP.UTF-8   
+ [7] LC_PAPER=ja_JP.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
+[10] LC_TELEPHONE=C             LC_MEASUREMENT=ja_JP.UTF-8 LC_IDENTIFICATION=C       
+
+attached base packages:
+[1] stats4    parallel  stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] forcats_0.5.0               stringr_1.4.0               dplyr_1.0.0                
+ [4] purrr_0.3.4                 readr_1.3.1                 tidyr_1.1.0                
+ [7] tibble_3.0.3                ggplot2_3.3.2               tidyverse_1.3.0            
+[10] ShortRead_1.46.0            GenomicAlignments_1.24.0    SummarizedExperiment_1.18.2
+[13] DelayedArray_0.14.1         matrixStats_0.56.0          Biobase_2.48.0             
+[16] Rsamtools_2.4.0             GenomicRanges_1.40.0        GenomeInfoDb_1.24.2        
+[19] Biostrings_2.56.0           XVector_0.28.0              IRanges_2.22.2             
+[22] S4Vectors_0.26.1            BiocParallel_1.22.0         BiocGenerics_0.34.0        
+[25] dada2_1.16.0                Rcpp_1.0.5                 
+
+loaded via a namespace (and not attached):
+ [1] httr_1.4.2             jsonlite_1.7.0         modelr_0.1.8           RcppParallel_5.0.2    
+ [5] assertthat_0.2.1       latticeExtra_0.6-29    blob_1.2.1             GenomeInfoDbData_1.2.3
+ [9] cellranger_1.1.0       pillar_1.4.6           backports_1.1.8        lattice_0.20-41       
+[13] glue_1.4.1             digest_0.6.25          RColorBrewer_1.1-2     rvest_0.3.5           
+[17] colorspace_1.4-1       Matrix_1.2-18          plyr_1.8.6             pkgconfig_2.0.3       
+[21] broom_0.7.0            haven_2.3.1            zlibbioc_1.34.0        scales_1.1.1          
+[25] jpeg_0.1-8.1           generics_0.0.2         farver_2.0.3           ellipsis_0.3.1        
+[29] withr_2.2.0            cli_2.0.2              magrittr_1.5           crayon_1.3.4          
+[33] readxl_1.3.1           fs_1.4.2               fansi_0.4.1            xml2_1.3.2            
+[37] hwriter_1.3.2          tools_4.0.2            hms_0.5.3              lifecycle_0.2.0       
+[41] munsell_0.5.0          reprex_0.3.0           compiler_4.0.2         rlang_0.4.7           
+[45] grid_4.0.2             RCurl_1.98-1.2         rstudioapi_0.11        bitops_1.0-6          
+[49] labeling_0.3           gtable_0.3.0           DBI_1.1.0              reshape2_1.4.4        
+[53] R6_2.4.1               lubridate_1.7.9        stringi_1.4.6          vctrs_0.3.2           
+[57] png_0.1-7              dbplyr_1.4.4           tidyselect_1.1.0      
