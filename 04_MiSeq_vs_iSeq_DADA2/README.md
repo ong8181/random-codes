@@ -29,6 +29,6 @@ The relationship between final sequence reads of MiSeq-style and iSeq-style fast
 
 ## Figure 3: Relative abundance of MiSeq-style v.s. iSeq-style fastq files
 <img src="06_ComparisonOut/RelativeAbundance_scatterplot.jpg" width="700px">
-The relationship between relative abundances of MiSeq-style and iSeq-style fastq files. Almost on 1:1 line (dashed line), but the relative abundance of iSeq-style fastq files are slightly lower than that of MiSeq-style fastq files when the relative abundance is low.
+The relationship between relative abundances of MiSeq-style and iSeq-style fastq files. Almost on 1:1 line (dashed line), but the relative abundance of rare taxa of iSeq-style fastq files are slightly lower than that of MiSeq-style fastq files.
 
 
