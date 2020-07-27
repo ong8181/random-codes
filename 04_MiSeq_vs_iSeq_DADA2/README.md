@@ -17,6 +17,7 @@ According to the analysis, MiSeq-style and iSeq-style fastq files generated very
 
 ### Notes
 - I converted 250 x 2 bp MiSeq fastq files to iSeq-style fastq files, but the maximum length of iSeq sequencer is currently 150 x 2 bp.
+- I used `bcl2fastq` command to generate (MiSeq-style) fastq files from BCL files, and demultiplexed them using `clsplitseq` function implemented in Claident. This procedure removed the forward primer region when demultiplesing was performed.
 - In the library preparation process, I included artifitial prokaryote-like sequences as internal standard DNAs in order to quantify prokaryotic DNAs. There internal standard DNAs occupy a large proportion of total sequence reads (ca. 35%). For details, see <a href="https://doi.org/10.1101/2020.04.08.032524">Ushio (2020) <i>bioRxiv</i></a>.
 
 ## Figure 1: Barplots of MiSeq-style v.s. iSeq-style fastq files
