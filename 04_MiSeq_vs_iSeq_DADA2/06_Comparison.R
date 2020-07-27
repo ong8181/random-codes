@@ -29,6 +29,7 @@ ps2 <- get_top_taxa(ps, n = 50, relative = TRUE,
 b1 <- fantaxtic_bar(ps2, color_by = "phylum", label_by = "phylum", other_label = "Other", facet_by = "fastq_type")
 b1$data$Sample <- factor(b1$data$Sample, levels = rownames(sample_data(ps2)))
 b1$data$facet <- factor(b1$data$facet, levels = c("MiSeq", "iSeq"))
+b1 <- b1 + ylab("Relative abundance")
 
 # Visualize patterns (scatterplot)
 ps_aa_m0 <- psmelt(ps)
