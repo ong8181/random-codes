@@ -8,8 +8,8 @@ According to the analysis, MiSeq-style and iSeq-style fastq files generated very
 
 # General procedure
 0. Partial 16S rRNA sequences were amplified using 515F-806R, and the amplicons were sequenced by MiSeq V2 250 x 2 bp kit.
-1. Started from MiSeq fastq files (0-39) (Example fastq files are in "02_DemultiplexedOut_MiSeqStyle"). Note that, although I analyzed 252 fastq files (= 126 samples), only six fastq files are in "02_DemultiplexedOut_MiSeqStyle" because the results have not been published yet (a preprint is available <a href="https://doi.org/10.1101/2020.04.08.032524">here</a>).
-2. Manually converted MiSeq Q-scores to iSeq Q-scores using a shell script (Example fastq files are in "02_DemultiplexedOut_iSeqStyle").
+1. Started from MiSeq fastq files (Q-score = 0-39) (Example fastq files are in "02_DemultiplexedOut_MiSeqStyle"). Note that, although I analyzed 252 fastq files (= 126 samples), only six fastq files are in "02_DemultiplexedOut_MiSeqStyle" because the results have not been published yet (a preprint is available <a href="https://doi.org/10.1101/2020.04.08.032524">here</a>).
+2. Manually converted MiSeq Q-scores (0-39) to iSeq Q-scores (11, 25 or 37) using a shell script (Examples of iSeq-style fastq files are in "02_DemultiplexedOut_iSeqStyle").
 3. These two types of fastq files were analyzed identically using DADA2 ("03_SeqAnalysisDADA2_MiSeq.R" and "03_SeqAnalysisDADA2_iSeq.R").
 4. Representative sequences were saved as "ASV.fa", and taxa information was assigned using Claident (<a href="https://doi.org/10.1371/journal.pone.0076910">Tanabe & Toju 2013 PLoS ONE</a>).
 5. ASV table, sample information and taxa information were imported as phyloseq object.
