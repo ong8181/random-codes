@@ -4,7 +4,7 @@
 #### R 4.0.2
 ####
 
-# Set random seeds (for reproduction)
+# Create output directory
 output_folder <- "05_PhyloseqObjOut"
 dir.create(output_folder)
 
