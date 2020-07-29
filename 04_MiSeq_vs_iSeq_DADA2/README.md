@@ -13,12 +13,12 @@ According to the analysis, MiSeq-style and iSeq-style fastq files generated very
 3. These two types of fastq files were analyzed identically using DADA2 ("03_SeqAnalysisDADA2_MiSeq.R" and "03_SeqAnalysisDADA2_iSeq.R").
 4. Representative sequences were saved as "ASV.fa", and taxa information was assigned using Claident (<a href="https://doi.org/10.1371/journal.pone.0076910">Tanabe & Toju 2013 PLoS ONE</a>).
 5. ASV table, sample information and taxa information were imported as phyloseq object.
-6. Three types of visualizations were done: Barplots of MiSeq-style and iSeq-style fastq files (__Figure 1__), sequence reads of MiSeq-style v.s. iSeq-style fastq files (__Figure 2__) and relative abundance of MiSeq-style v.s. iSeq-style fastq files (__Figure 3__).
+6. Four types of visualizations were done: Barplots of MiSeq-style and iSeq-style fastq files (__Figure 1__), sequence reads of MiSeq-style v.s. iSeq-style fastq files (__Figure 2__), relative abundance of MiSeq-style v.s. iSeq-style fastq files (__Figure 3__), and histrorams of ASV abundance distribution (__Figure 4__).
 
 ### Notes
 - I converted 250 x 2 bp MiSeq fastq files to iSeq-style fastq files, but the maximum length of iSeq sequencer is currently 150 x 2 bp.
 - I used `bcl2fastq` command to generate (MiSeq-style) fastq files from BCL files, and demultiplexed them using `clsplitseq` function implemented in Claident. This procedure removed the forward primer region when demultiplexing was performed.
-- In the library preparation process, I included artifitial prokaryote-like sequences as internal standard DNAs in order to quantify prokaryotic DNAs. There internal standard DNAs occupy a large proportion of total sequence reads (ca. 35%). For details, see <a href="https://doi.org/10.1101/2020.04.08.032524">Ushio (2020) <i>bioRxiv</i></a>.
+- In the library preparation process, I included artifitial prokaryote-like sequences as internal standard DNAs in order to quantify prokaryotic DNAs. These internal standard DNAs occupy a large proportion of total sequence reads (ca. 35%). For details, see <a href="https://doi.org/10.1101/2020.04.08.032524">Ushio (2020) <i>bioRxiv</i></a>.
 
 ## Figure 1: Barplots of MiSeq-style v.s. iSeq-style fastq files
 <img src="06_ComparisonOut/MiSeq_vs_iSeq_barplot.jpg" width="1000px">
@@ -32,4 +32,6 @@ The relationship between final sequence reads of MiSeq-style and iSeq-style fast
 <img src="06_ComparisonOut/RelativeAbundance_scatterplot.jpg" width="700px">
 The relationship between relative abundances of MiSeq-style and iSeq-style fastq files. Almost on 1:1 line (dashed line), but the relative abundance of rare taxa of iSeq-style fastq files are slightly lower than that of MiSeq-style fastq files.
 
-
+## Figure 4: Histograms of ASV distributions of MiSeq-style v.s. iSeq-style fastq files
+<img src="07_Comparison2Out/MiSeq_vs_iSeq_histogram.jpg" width="700px">
+Histograms of ASV distributions of MiSeq-style and iSeq-style fastq files. Upper and lower panels show the histograms of ASV read counts and relative abundances. Both show similar results.
