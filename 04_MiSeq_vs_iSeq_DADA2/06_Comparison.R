@@ -84,3 +84,7 @@ s2 <- ggplot(ps_m2, aes(x = MiSeq_rlt_reads, y = iSeq_rlt_reads, color = phylum)
 ggsave(sprintf("%s/MiSeq_vs_iSeq_barplot.pdf", output_folder), plot = b1, width = 14, height = 10)
 ggsave(sprintf("%s/SequenceReads_scatterplot.pdf", output_folder), plot = s1, width = 8.5, height = 6)
 ggsave(sprintf("%s/RelativeAbundance_scatterplot.pdf", output_folder), plot = s2, width = 8.5, height = 6)
+                                 
+# Save workspace
+save(list = ls(all.names = TRUE),
+     file = sprintf("%s/%s.RData", output_folder, output_folder))
