@@ -13,7 +13,7 @@ According to the analysis, MiSeq-style and iSeq-style fastq files generated very
 3. These two types of fastq files were analyzed identically using DADA2 ("03_SeqAnalysisDADA2_MiSeq.R" and "03_SeqAnalysisDADA2_iSeq.R").
 4. Representative sequences were saved as "ASV.fa", and taxa information was assigned using Claident (<a href="https://doi.org/10.1371/journal.pone.0076910">Tanabe & Toju 2013 PLoS ONE</a>).
 5. ASV table, sample information and taxa information were imported as phyloseq object.
-6. Four types of visualizations were done: Barplots of MiSeq-style and iSeq-style fastq files (__Figure 1__), sequence reads of MiSeq-style v.s. iSeq-style fastq files (__Figure 2__), relative abundance of MiSeq-style v.s. iSeq-style fastq files (__Figure 3__), and histrorams of ASV abundance distribution (__Figure 4__).
+6. Four types of visualizations were done: Barplots of MiSeq-style and iSeq-style fastq files (__Figure 1__), sequence reads of MiSeq-style v.s. iSeq-style fastq files (__Figure 2__), relative abundance of MiSeq-style v.s. iSeq-style fastq files (__Figure 3__), and histrorams of ASV abundance distribution (__Figure 4__). Error rate plots may also be halepful (see "03_SeqAnalysisDADA2_MiSeqOut" and "03_SeqAnalysisDADA2_iSeqOut" folders).
 
 ### Notes
 - I converted 250 x 2 bp MiSeq fastq files to iSeq-style fastq files, but the maximum length of iSeq sequencer is currently 150 x 2 bp.
