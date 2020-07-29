@@ -4,7 +4,7 @@
 #### R 4.0.2
 ####
 
-# Set random seeds (for reproduction)
+# Create output directory
 output_folder <- "06_ComparisonOut"
 dir.create(output_folder)
 
