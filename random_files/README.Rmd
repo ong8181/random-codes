@@ -1,0 +1,2 @@
+# Random file folder
+This floder contains random files.
