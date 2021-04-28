@@ -135,6 +135,48 @@ p678 <- plot_grid(p6 + theme(legend.position = "none"),
                   rel_widths = c(1,1,1,0.3),
                   ncol = 4)
 
+ 
+# ----------------------------------------------- #
+#                OTU clustering
+# ----------------------------------------------- #
+# Reference
+# https://github.com/benjjneb/dada2/issues/947
+
+# Preparation
+n_cores <- parallel::detectCores() # set to number of cpus/processors to use for the clustering
+dna <- Biostrings::DNAStringSet(tax_sheet$seq)
+# Find clusters of ASVs to form the new OTUs
+aln <- DECIPHER::AlignSeqs(dna, processors = n_cores)
+aln_dist <- DECIPHER::DistanceMatrix(aln, processors = n_cores)
+# use `cutoff = 0.03` for a 97% OTU 
+clusters <- DECIPHER::IdClusters(aln_dist, method = "complete",
+                                 processors = n_cores, type = "clusters",
+                                 cutoff = 0.03, showPlot = F)
+colnames(clusters) <- "cluster_id"
+clusters$cluster_id <- factor(clusters$cluster_id, levels = unique(clusters$cluster_id))
+length(unique(clusters$cluster_id))
+# Use dplyr to merge the columns of the asv_sheet matrix for ASVs in the same OTU
+merged_asv_sheet <- asv_sheet %>% t %>%
+  rowsum(clusters$cluster_id) %>% t
+
+# Make OTU-based phyloseq objects
+# Import DADA2 ASV output to phyloseq
+asv_sheet2 <- asv_sheet; colnames(asv_sheet2) <- tax_sheet$seq
+ps_tmp <- phyloseq(otu_table(asv_sheet2, taxa_are_rows = FALSE))
+# Merge taxa in "ps" using cluster information
+ps_otu <- speedyseq::merge_taxa_vec(ps_tmp, group = clusters$cluster_id)
+# Get OTU sequences and OTU table
+otu_seqs <- colnames(otu_table(ps_otu))
+otu_sheet <- otu_table(ps_otu)@.Data
+
+# Sanity check (make clustering summary table)
+otu_only <- data.frame(taxa_id = sprintf("OTU%05d", 1:length(otu_seqs)),
+                       seq = otu_seqs)
+clusters$seq_sum <- colSums(asv_sheet)
+clusters$asv_seq <- tax_sheet$seq
+asv_1st <- clusters %>% group_by(cluster_id) %>% summarize(otu_seqs = asv_seq[[1]])
+clusters$otu_seq <- unlist(asv_1st[match(clusters$cluster_id, asv_1st$cluster_id), "otu_seqs"])
+
 
 # ----------------------------------------------- #
 #             Other helpful packages
