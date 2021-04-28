@@ -7,7 +7,7 @@ The script contains the following analyses:
 - Dimensionality reduction
 - OTU clustering
 
-The demo data is from Ushio (2019) _Methods in Ecology and Evolution_ (https://doi.org/10.1111/2041-210X.13204)
+The demo data is a subset of data analyzed in Ushio (2019) _Methods in Ecology and Evolution_ (https://doi.org/10.1111/2041-210X.13204)
 
 - 2021.04.24: Folder created.
 - 2021.04.28: Script edited.
