@@ -191,7 +191,7 @@ system.time(speedyseq::psmelt(ps_all))  # 0.025 sec elapsed
 ps_top20 <- fantaxtic::get_top_taxa(ps_all, n = 20, relative = TRUE,
                                     discard_other = FALSE, other_label = "Other")
 p9 <- fantaxtic::fantaxtic_bar(ps_top20, color_by = "phylum",
-                                label_by = "phylum", other_label = "Other")
+                               label_by = "phylum", other_label = "Other", order_alg = "alph")
 
 
 # ----------------------------------------------- #
