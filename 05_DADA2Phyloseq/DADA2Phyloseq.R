@@ -99,7 +99,7 @@ p5 <- ggplot(rare_df, aes(x = raw_read, y = ASV, color = sample)) +
 # ----------------------------------------------- #
 #           Dimensionality reduction
 # ----------------------------------------------- #
-# Nonmetric dimensional scaling
+# Nonmetric multidimensional scaling
 ps_sea <- subset_samples(ps_all, Site == "sea" & sample_nc == "sample")
 set.seed(1234)
 ps_bray <- ordinate(ps_sea, "NMDS", "bray")
