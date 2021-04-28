@@ -1,4 +1,4 @@
-# Statistica analyses after DADA2 processing
+# Statistical analyses after DADA2 processing
 Tutorial for statistical analyses after DADA2 processing using `phyloseq`.
 The script contains the following analyses:
 - Basic data handling
