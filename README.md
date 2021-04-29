@@ -7,3 +7,4 @@ This repository contains random scripts to learn and test new methods. All of th
 - 15 May 2019: "02_RegularizedSmap" created (R).
 - 13 March 2020: "03_EchoStateNetwork" created (Python).
 - 27 July 2020: "04_MiSeq_vs_iSeq_DADA2" created (R and shell).
+- 24 April 2021: "05_DADA2Phyloseq" created (R).
