@@ -9,3 +9,4 @@ This repository contains random scripts to learn and test methods. All of them a
 - 27 July 2020: "04_MiSeq_vs_iSeq_DADA2" created (R and shell).
 - 24 April 2021: "05_DADA2Phyloseq" created (R).
 - 17 October 2021: "06_ToolBox" created.
+- 9 December 2021: "07_rDoAMP" created (R and Shell).
