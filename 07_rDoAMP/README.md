@@ -7,4 +7,8 @@ Functions to extract amplicons from target sequences using a user-specified prim
 - Download sequences using `rentrez` package of R.
 - Allow random sampling from searched sequence IDs.
 - Extract amplicons using `seqkit amplicon`.
-- Automatically expand degenerate primers and create primer list to allow `--max-mismatch` option of `seqkit amplicon`.
+- Automatically expand degenerate primers and create a list of primer combinations to allow `--max-mismatch` option of `seqkit amplicon`.
+
+# `doamp_custom()`
+- Extract amplicons from a user-specified, custom FASTA file using `seqkit amplicon`.
+- Automatically expand degenerate primers and create a list of primer combinations to allow `--max-mismatch` option of `seqkit amplicon`.
