@@ -12,3 +12,6 @@ Functions to extract amplicons from target sequences using a user-specified prim
 # `doamp_custom()`
 - Extract amplicons from a user-specified, custom FASTA file using `seqkit amplicon`.
 - Automatically expand degenerate primers and create a list of primer combinations to allow `--max-mismatch` option of `seqkit amplicon`.
+
+# `popular_primer_set`
+- A list of popular primer sets.
