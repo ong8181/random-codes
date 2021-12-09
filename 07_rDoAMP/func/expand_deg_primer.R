@@ -2,10 +2,6 @@
 #### Generate all possible combinations of degenerate primers
 ####
 
-# List of degenerate bases
-#input_primer = as.character(read.table("../functions_R/f_primer_tmp.txt"))
-#input_primer = "AGGTGAAGTTAAAGGTTCATACTTDAA"
-
 #------------------------------------------------------#
 # expand_degenerate_primer(character)
 #------------------------------------------------------#
