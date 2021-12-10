@@ -4,8 +4,8 @@
 #### - DOes my primer set AMPlify my target sequences? -
 ####
 #### History:
-#### 2021.12.9 < v0.1.0, Ushio: The initial versions, locally stored
-#### 2021.12.9   v0.1.0, Ushio: For Github version
+#### 2021.12.09 < v0.1.0, Ushio: The initial versions, locally stored
+#### 2021.12.10   v0.1.0, Ushio: For Github version
 ####
 
 
@@ -33,8 +33,8 @@ dir.create("0_SessionInfo") # To save session information here
 ## Fish example
 SEARCH_QUERY <- "Trachurus AND mitochondrion AND 1000:20000[SLEN]"
 N_RETMAX <- 200 # Maximum number of hits returned by the search
-F_primer <- popular_primer_set$MiFish_U$forward # Or, "GTCGGTAAAACTCGTGCCAGC"
-R_primer <- popular_primer_set$MiFish_U$reverse # Or, "CATAGTGGGGTATCTAATCCCAGTTTG"
+F_PRIMER <- popular_primer_set$MiFish_U$forward # Or, "GTCGGTAAAACTCGTGCCAGC"
+R_PRIMER <- popular_primer_set$MiFish_U$reverse # Or, "CATAGTGGGGTATCTAATCCCAGTTTG"
 N_MISMATCH <- 0 # Maximum number of primer-template mismatch
 
 ## Prokaryote example
