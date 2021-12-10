@@ -30,10 +30,11 @@ doamp_auto(search_query,
 ```
 
 #### Basic usage
-```doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN] ",
-               F_primer = "GTCGGTAAAACTCGTGCCAGC",                    # MiFish-U-F
-               R_primer = "CATAGTGGGGTATCTAATCCCAGTTTG",              # MiFish-U-R
-               n_mismatch = 3)
+```
+doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN] ",
+           F_primer = "GTCGGTAAAACTCGTGCCAGC",                    # MiFish-U-F
+           R_primer = "CATAGTGGGGTATCTAATCCCAGTTTG",              # MiFish-U-R
+           n_mismatch = 3)
 ```
 
 ## `doamp_custom()`
@@ -53,10 +54,11 @@ doamp_custom(target_fasta,
 ```
 
 #### Basic usage
-```doamp_custom("YOUR_FASTA.fasta",
-                F_primer = "GTCGGTAAAACTCGTGCCAGC",
-                R_primer = "CATAGTGGGGTATCTAATCCCAGTTTG",
-                n_mismatch = 3)
+```
+doamp_custom("YOUR_FASTA.fasta",
+             F_primer = "GTCGGTAAAACTCGTGCCAGC",
+             R_primer = "CATAGTGGGGTATCTAATCCCAGTTTG",
+             n_mismatch = 3)
 ```
 
 ## `popular_primer_set`
