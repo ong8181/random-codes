@@ -56,8 +56,8 @@ doamp_custom(target_fasta,
 #### Basic usage
 ```r
 doamp_custom("YOUR_FASTA.fasta",
-             F_primer = "GTCGGTAAAACTCGTGCCAGC",
-             R_primer = "CATAGTGGGGTATCTAATCCCAGTTTG",
+             F_primer = "GTCGGTAAAACTCGTGCCAGC",                    # MiFish-U-F
+             R_primer = "CATAGTGGGGTATCTAATCCCAGTTTG",              # MiFish-U-R
              n_mismatch = 3)
 ```
 
