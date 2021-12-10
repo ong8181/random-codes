@@ -32,21 +32,21 @@ dir.create("0_SessionInfo") # To save session information here
 #-----------------------------------------------------------------#
 ## Fish example
 SEARCH_QUERY <- "Trachurus AND mitochondrion AND 1000:20000[SLEN]"
-N_RETMAX <- 200 # Maximum number of hits returned by the search
+N_RETMAX <- 200 # Maximum number of retrieved sequences
 F_PRIMER <- popular_primer_set$MiFish_U$forward # Or, "GTCGGTAAAACTCGTGCCAGC"
 R_PRIMER <- popular_primer_set$MiFish_U$reverse # Or, "CATAGTGGGGTATCTAATCCCAGTTTG"
 N_MISMATCH <- 3 # Maximum number of primer-template mismatch
 
 ## Prokaryote example
 #SEARCH_QUERY <- "Erwinia AND 16S AND 500:1000[SLEN]"
-#N_RETMAX <- 200 # Maximum number of hits returned by the search
+#N_RETMAX <- 200 # Maximum number of retrieved sequences
 #F_PRIMER <- popular_primer_set$Prok16S_515F_806R$forward # Or, "GTGYCAGCMGCCGCGGTAA"
 #R_PRIMER <- popular_primer_set$Prok16S_515F_806R$reverse # Or, "GGACTACNVGGGTWTCTAAT"
 #N_MISMATCH <- 0 # Maximum number of primer-template mismatch
 
 ## Insect example
 #SEARCH_QUERY <- "(Apis OR Bombus) AND COI AND 500:1000[SLEN]"
-#N_RETMAX <- 200 # Maximum number of hits returned by the search
+#N_RETMAX <- 200 # Maximum number of retrieved sequences
 #F_PRIMER <- popular_primer_set$AnimalCOI_mlCOIintF_HCO2198$forward
 #R_PRIMER <- popular_primer_set$AnimalCOI_mlCOIintF_HCO2198$reverse
 #N_MISMATCH <- 3 # Maximum number of primer-template mismatch
