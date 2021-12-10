@@ -33,7 +33,8 @@ doamp_auto(search_query,
 ```doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN] ",
                F_primer = "GTCGGTAAAACTCGTGCCAGC",                    # MiFish-U-F
                R_primer = "CATAGTGGGGTATCTAATCCCAGTTTG",              # MiFish-U-R
-               n_mismatch = 3)```
+               n_mismatch = 3)
+```
 
 ## `doamp_custom()`
 - Extract amplicons from a user-specified, custom FASTA file using `seqkit amplicon`.
@@ -50,11 +51,13 @@ doamp_custom(target_fasta,
              save_stat = TRUE,
              overwrite_output_dir = FALSE) 
 ```
+
 #### Basic usage
 ```doamp_custom("YOUR_FASTA.fasta",
                 F_primer = "GTCGGTAAAACTCGTGCCAGC",
                 R_primer = "CATAGTGGGGTATCTAATCCCAGTTTG",
-                n_mismatch = 3)```
+                n_mismatch = 3)
+```
 
 ## `popular_primer_set`
 - A list of popular primer sets.
