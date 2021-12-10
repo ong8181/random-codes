@@ -31,7 +31,7 @@ doamp_auto(search_query,
 
 #### Basic usage
 ```r
-doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN] ",
+doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN]",
            F_primer = "GTCGGTAAAACTCGTGCCAGC",                    # MiFish-U-F
            R_primer = "CATAGTGGGGTATCTAATCCCAGTTTG",              # MiFish-U-R
            n_mismatch = 3)
