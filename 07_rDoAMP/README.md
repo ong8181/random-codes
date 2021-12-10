@@ -14,7 +14,7 @@ R functions to extract amplicons from target sequences using a user-specified pr
 - Automatically expand degenerate primers and create a list of primer combinations to use `--max-mismatch` option of `seqkit amplicon` for degenerated primers.
 
 #### Arguments
-```
+```r
 doamp_auto(search_query,
            F_primer,
            R_primer,
@@ -30,7 +30,7 @@ doamp_auto(search_query,
 ```
 
 #### Basic usage
-```
+```r
 doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN] ",
            F_primer = "GTCGGTAAAACTCGTGCCAGC",                    # MiFish-U-F
            R_primer = "CATAGTGGGGTATCTAATCCCAGTTTG",              # MiFish-U-R
@@ -42,7 +42,7 @@ doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN] ",
 - Automatically expand degenerate primers and create a list of primer combinations to use `--max-mismatch` option of `seqkit amplicon` for degenerated primers.
 
 #### Arguments
-```
+```r
 doamp_custom(target_fasta,
              F_primer,
              R_primer,
@@ -54,7 +54,7 @@ doamp_custom(target_fasta,
 ```
 
 #### Basic usage
-```
+```r
 doamp_custom("YOUR_FASTA.fasta",
              F_primer = "GTCGGTAAAACTCGTGCCAGC",
              R_primer = "CATAGTGGGGTATCTAATCCCAGTTTG",
