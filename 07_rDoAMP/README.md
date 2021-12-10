@@ -13,6 +13,13 @@ R functions to extract amplicons from target sequences using a user-specified pr
 - Extract amplicons using `seqkit amplicon`.
 - Automatically expand degenerate primers and create a list of primer combinations to use `--max-mismatch` option of `seqkit amplicon` for degenerated primers.
 
+Basic usage
+```
+doamp_auto(search_query,
+           F_primer
+           R_primer)
+```
+
 ## `doamp_custom()`
 - Extract amplicons from a user-specified, custom FASTA file using `seqkit amplicon`.
 - Automatically expand degenerate primers and create a list of primer combinations to use `--max-mismatch` option of `seqkit amplicon` for degenerated primers.
