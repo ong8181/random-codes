@@ -35,7 +35,7 @@ SEARCH_QUERY <- "Trachurus AND mitochondrion AND 1000:20000[SLEN]"
 N_RETMAX <- 200 # Maximum number of hits returned by the search
 F_PRIMER <- popular_primer_set$MiFish_U$forward # Or, "GTCGGTAAAACTCGTGCCAGC"
 R_PRIMER <- popular_primer_set$MiFish_U$reverse # Or, "CATAGTGGGGTATCTAATCCCAGTTTG"
-N_MISMATCH <- 0 # Maximum number of primer-template mismatch
+N_MISMATCH <- 3 # Maximum number of primer-template mismatch
 
 ## Prokaryote example
 #SEARCH_QUERY <- "Erwinia AND 16S AND 500:1000[SLEN]"
