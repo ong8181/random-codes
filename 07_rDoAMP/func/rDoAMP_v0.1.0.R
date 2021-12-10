@@ -4,8 +4,8 @@
 #### - DOes my primer set AMPlify my target? -
 ####
 #### History:
-#### 2021.12.9 < v0.1.0, Ushio: The initial versions, locally stored
-#### 2021.12.9   v0.1.0, Ushio: For Github version
+#### 2021.12.09 < v0.1.0, Ushio: The initial versions, locally stored
+#### 2021.12.10   v0.1.0, Ushio: For Github version
 ####
 
 #-----------------------------------------------------------------#
