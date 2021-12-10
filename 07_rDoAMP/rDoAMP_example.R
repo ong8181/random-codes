@@ -43,6 +43,13 @@ N_MISMATCH <- 3 # Maximum number of primer-template mismatch
 #F_PRIMER <- popular_primer_set$Prok16S_515F_806R$forward # Or, "GTGYCAGCMGCCGCGGTAA"
 #R_PRIMER <- popular_primer_set$Prok16S_515F_806R$reverse # Or, "GGACTACNVGGGTWTCTAAT"
 #N_MISMATCH <- 0 # Maximum number of primer-template mismatch
+
+## Insect example
+#SEARCH_QUERY <- "(Apis OR Bombus) AND COI AND 500:1000[SLEN]"
+#N_RETMAX <- 200 # Maximum number of hits returned by the search
+#F_PRIMER <- popular_primer_set$AnimalCOI_mlCOIintF_HCO2198$forward
+#R_PRIMER <- popular_primer_set$AnimalCOI_mlCOIintF_HCO2198$reverse
+#N_MISMATCH <- 3 # Maximum number of primer-template mismatch
 #-----------------------------------------------------------------#
 
 
