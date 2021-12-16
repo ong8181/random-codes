@@ -1,7 +1,7 @@
 # rDoAMP package is here https://github.com/ong8181/rDoAMP
-rDoAMP is re-written and now available as R pacakge (https://github.com/ong8181/rDoAMP). R package is executable for macOS and Windows, while scripts in this folder executable only in macOS. Please use R package version. Also, the content in this folder may be deleted in near future.
+rDoAMP is re-written and now available as R pacakge ( https://github.com/ong8181/rDoAMP ). R package is executable for macOS and Windows, while scripts in this folder executable only in macOS. Please use R package version. Also, the content in this folder may be deleted in near future.
 
-rDoAMP は R パッケージとして書き直しました (https://github.com/ong8181/rDoAMP)。 macOS と Windows で動くのでそちらをご利用ください。このフォルダ内のバージョンは macOS でしか動きません。また、このフォルダ内のバージョンは削除される可能性があります。
+rDoAMP は R パッケージとして書き直しました ( https://github.com/ong8181/rDoAMP )。 macOS と Windows で動くのでそちらをご利用ください。このフォルダ内のバージョンは macOS でしか動きません。また、このフォルダ内のバージョンは削除される可能性があります。
 
 
 # rDoAMP v0.1.0
