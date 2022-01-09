@@ -1,1 +1,1 @@
-# Twin surrogate function with Rcpp ($\alpha$)
+# Twin surrogate function with Rcpp (alpha version)
