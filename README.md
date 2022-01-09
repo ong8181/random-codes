@@ -1,5 +1,5 @@
-# Random scritps to learn, test and share methods
-This repository contains random scripts to learn and test methods. All of them are under development and there is no guarantee that the algorithum works correctly. However, I put the scripts here to share methods and ideas.
+# Random codes to learn, test and share methods
+This repository contains random codes to learn and test methods. All of them are under development and there is no guarantee that the algorithum works correctly. However, I put the codes here to share methods and ideas.
 
 # History
 - 6 April 2019: Repository created.
