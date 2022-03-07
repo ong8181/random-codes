@@ -41,15 +41,3 @@ ps_rare <- rarefy_even_coverage(ps_sample, coverage = 0.99, rarefy_step = 10)
 sample_sums(ps_rare)
 sample_data(ps_rare)
 
-
-# Test speed
-## v2
-#system.time(ps_rare2 <- rarefy_even_coverage(ps_sample, coverage = 0.99))
-# user  system elapsed 
-# 3.268   0.076   3.344 
-#sample_sums(ps_rare2)
-## v1
-#system.time(ps_rare1 <- rarefaction_coverage(ps_sample, slope = 0.01))
-# user  system elapsed 
-# 10.214   0.082  10.291 
-#sample_sums(ps_rare1)
