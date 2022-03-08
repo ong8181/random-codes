@@ -159,7 +159,7 @@ rarefy_even_coverage <-  function(ps_obj,
 #ps_obj <- ps_sample
 #ps_obj_rare <- ps_rare
 #rarefy_step = 10
-plot_rarefy <- function (ps_obj, ps_obj_rare, ran_seed = 1234) {
+plot_rarefy <- function (ps_obj, ps_obj_rare, rarefy_step = 10, ran_seed = 1234) {
   # Convert ps_obj to OTU table
   com_mat <- as.matrix(otu_table(ps_obj))
   # Get coverage-based rarefied otu_table

@@ -37,7 +37,7 @@ sample_sums(ps_sample)
 # ----------------------------------------------- #
 # Perform coverage-based rarefaction
 # ----------------------------------------------- #
-ps_rare <- rarefy_even_coverage(ps_sample, coverage = 0.99, rarefy_step = 10)
+ps_rare <- rarefy_even_coverage(ps_sample, coverage = 0.97, rarefy_step = 10)
 sample_sums(ps_rare)
 sample_data(ps_rare)
 
