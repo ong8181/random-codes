@@ -3,7 +3,7 @@
 #### 2022.3.7 Ushio
 ####
 
-setwd("09_RarefyCoverage/")
+#setwd("09_RarefyCoverage/")
 
 # Load libraries and function
 library(tidyverse); packageVersion("tidyverse") # 1.3.1
@@ -41,3 +41,9 @@ ps_rare <- rarefy_even_coverage(ps_sample, coverage = 0.99, rarefy_step = 10)
 sample_sums(ps_rare)
 sample_data(ps_rare)
 
+
+# ----------------------------------------------- #
+# Visualize rarefaction
+# ----------------------------------------------- #
+g1 <- plot_rarefy(ps_sample, ps_rare)
+g1
