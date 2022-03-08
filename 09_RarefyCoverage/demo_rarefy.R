@@ -1,6 +1,6 @@
 ####
 #### Coverage-based rarefaction
-#### 2022.3.7 Ushio
+#### 2022.3.8 Ushio
 ####
 
 #setwd("09_RarefyCoverage/")
@@ -43,7 +43,7 @@ sample_data(ps_rare)
 
 
 # ----------------------------------------------- #
-# Visualize rarefaction
+# Visualize rarefaction curve
 # ----------------------------------------------- #
 (g1 <- plot_rarefy(ps_sample, ps_rare))
 

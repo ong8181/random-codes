@@ -189,7 +189,7 @@ plot_rarefy <- function (ps_obj, ps_obj_rare, rarefy_step = 10, ran_seed = 1234)
     geom_abline(slope = rare_df2_slope,
                 intercept = rare_df2_intercept,
                 linetype = 3, size = 0.5, alpha = 0.8) +
-    xlim(0,10000) +
+    #xlim(0,10000) +
     NULL
   
   # Return ggplot object
