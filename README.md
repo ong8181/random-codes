@@ -11,3 +11,4 @@ This repository contains random codes to learn and test methods. All of them are
 - 17 October 2021: "06_ToolBox" created.
 - 9 December 2021: "07_rDoAMP" created (R and Shell).
 - 9 January 2022: "08_TwinSurrogateRcpp" created (R and C++).
+- 8 March 2022: "09_RarefyCoverage" created (R).
