@@ -1,4 +1,4 @@
-# A convenient function to perform coverage-based rarefaction
+# A convenient function of coverage-based rarefaction and its visualization
 This is a convenient function to perform coverage-based rarefaction. `phyloseq` object can be easily rarefied based on a user-specified coverage by executing the following command.
 
 ```{r}
