@@ -45,5 +45,5 @@ sample_data(ps_rare)
 # ----------------------------------------------- #
 # Visualize rarefaction
 # ----------------------------------------------- #
-g1 <- plot_rarefy(ps_sample, ps_rare)
-g1
+(g1 <- plot_rarefy(ps_sample, ps_rare))
+

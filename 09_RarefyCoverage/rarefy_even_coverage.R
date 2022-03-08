@@ -1,6 +1,6 @@
 ####
 #### rarefy_even_coverage.R
-#### a function to rarefy samples based on a user-specified coverage
+#### Functions to rarefy samples based on a user-specified coverage
 ####
 
 # Required packages
@@ -79,10 +79,22 @@ rarefy_even_coverage <-  function(ps_obj,
     }
     
     # Get rarefied counts
-    rarefied_count_list <-
-      com_mat[coverage_id,] %>% array_tree(1) %>%
-      list(x = ., y = coverage_reads[coverage_id] %>% array_tree) %>%
-      pmap(function(x,y) rrarefy(x, y))
+    rrlist <- com_mat[coverage_id,] %>% array_tree(1) %>%
+      list(x = ., y = coverage_reads[coverage_id] %>% array_tree)
+    rarefied_count_list <- rrlist %>% pmap(function(x,y) rrarefy(x, y))
+    ## Repeat three rarefactions to mitigate random sampling effects
+    ## This increases computation time
+    #rarefied_count_list1 <- rrlist %>% pmap(function(x,y) rrarefy(x, y))
+    #rarefied_count_list2 <- rrlist %>% pmap(function(x,y) rrarefy(x, y))
+    #rarefied_count_list3 <- rrlist %>% pmap(function(x,y) rrarefy(x, y))
+    #rarefied_count_list <- rarefied_count_list1 # temproal object
+    #for (j in 1:length(rrlist[[1]])) {
+    #  rarefied_count_list_tmp <- round(colMeans(rbind(rarefied_count_list1[[j]], 
+    #                                                    rarefied_count_list2[[j]], 
+    #                                                    rarefied_count_list3[[j]]))-0.3)
+    #  rarefied_count_list[[j]] <- rarefied_count_list_tmp
+    #}
+    
     # Combined as data.frame
     rarefied_count <- as.data.frame(do.call(rbind, rarefied_count_list))
     #rowSums(rarefied_count)
