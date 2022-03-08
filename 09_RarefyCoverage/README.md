@@ -11,6 +11,6 @@ In addition, results of the coverage-based rarefaction can be checked by visuali
 plot_rarefy(ps_sample, ps_rare)
 ```
 
-<img src="img/plot_rarefy.png" width="800px">
+<img src="img/rarefy_plot.png" width="800px">
 
 For more detail, please run `demo_rarefy.R`.
