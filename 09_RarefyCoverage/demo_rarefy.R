@@ -46,4 +46,23 @@ sample_data(ps_rare)
 # Visualize rarefaction curve
 # ----------------------------------------------- #
 (g1 <- plot_rarefy(ps_sample, ps_rare))
+(g2 <- plot_rarefy(ps_sample, ps_rare, plot_rarefied_point = FALSE))
 
+
+# ----------------------------------------------- #
+# metagMisc pakcage of R
+# ----------------------------------------------- #
+# Should be 'taxa_are_rows = TRUE'
+ps_all2 <- phyloseq(otu_table(t(asv_sheet), taxa_are_rows = TRUE),
+                    sample_data(sample_sheet),
+                    tax_table(as.matrix(tax_sheet)))
+ps_sample2 <- ps_all2 %>% subset_samples(sample_nc == "sample" & Site == "sea")
+
+# Calculate coverage and rarefy
+metagMisc::phyloseq_coverage(ps_sample2)
+ps_rare2 <- metagMisc::phyloseq_coverage_raref(ps_sample2, coverage = 0.97, iter = 1)
+sample_sums(ps_rare2)
+
+# Check correspondence
+plot(sample_sums(ps_rare), sample_sums(ps_rare2))
+abline(0, 1)

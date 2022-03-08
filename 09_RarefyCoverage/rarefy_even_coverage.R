@@ -159,7 +159,11 @@ rarefy_even_coverage <-  function(ps_obj,
 #ps_obj <- ps_sample
 #ps_obj_rare <- ps_rare
 #rarefy_step = 10
-plot_rarefy <- function (ps_obj, ps_obj_rare, rarefy_step = 10, ran_seed = 1234) {
+plot_rarefy <- function (ps_obj,
+                         ps_obj_rare,
+                         rarefy_step = 10,
+                         plot_rarefied_point = TRUE,
+                         ran_seed = 1234) {
   # Convert ps_obj to OTU table
   com_mat <- as.matrix(otu_table(ps_obj))
   # Get coverage-based rarefied otu_table
@@ -183,14 +187,19 @@ plot_rarefy <- function (ps_obj, ps_obj_rare, rarefy_step = 10, ran_seed = 1234)
     geom_line(size = 0.5) +
     xlab("Sequence reads") +
     ylab("The number of species") +
-    # Add rarefied information
-    geom_point(data = rare_df2, aes(x = x, y = y, color = sample),
-               size = 3, shape = 18) +
-    geom_abline(slope = rare_df2_slope,
-                intercept = rare_df2_intercept,
-                linetype = 3, size = 0.5, alpha = 0.8) +
-    #xlim(0,10000) +
     NULL
+  
+  if (plot_rarefied_point) {
+    # Add rarefied information
+    g_rare <- g_rare +
+      geom_point(data = rare_df2, aes(x = x, y = y, color = sample),
+               size = 3, shape = 18) +
+      geom_abline(slope = rare_df2_slope,
+                  intercept = rare_df2_intercept,
+                  linetype = 3, size = 0.5, alpha = 0.8) +
+      #xlim(0,10000) +
+      NULL
+  }
   
   # Return ggplot object
   return(g_rare)
