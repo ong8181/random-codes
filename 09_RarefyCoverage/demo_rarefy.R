@@ -57,10 +57,12 @@ g1 + xlim(0, 4000)
 library(iNEXT)
 
 # iNEXT-version rarefaction
+# (Faster than vegan::rarefy version)
 ps_rare2 <- rarefy_even_coverage_inext(ps_sample, coverage = 0.97)
 sample_data(ps_rare2)
 
-# iNEXT-version rarefaction
+# Include iNEXT results in the output for visualization
+# (It takes more time to calculate rarefaction curve)
 ps_rare_inext <- rarefy_even_coverage_inext(ps_sample, coverage = 0.97,
                                             include_iNEXT_results = TRUE,
                                             knots = 200, nboot = 1)
