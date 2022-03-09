@@ -58,8 +58,8 @@ g1 + xlim(0, 4000)
 library(iNEXT)
 
 # iNEXT-version rarefaction
-ps_rare3 <- rarefy_even_coverage_inext(ps_sample, coverage = 0.97)
-sample_data(ps_rare3)
+ps_rare2 <- rarefy_even_coverage_inext(ps_sample, coverage = 0.97)
+sample_data(ps_rare2)
 
 # iNEXT-version rarefaction
 ps_rare_inext <- rarefy_even_coverage_inext(ps_sample, coverage = 0.97,
@@ -83,10 +83,10 @@ g2 + xlim(0, 4000)
 #                    tax_table(as.matrix(tax_sheet)))
 #ps_sample2 <- ps_all2 %>% subset_samples(sample_nc == "sample" & Site == "sea")
 # Calculate coverage and rarefy
-#ps_rare2 <- metagMisc::phyloseq_coverage_raref(ps_sample2, coverage = 0.97, iter = 1)
-#sample_sums(ps_rare2)
+#ps_rare3 <- metagMisc::phyloseq_coverage_raref(ps_sample2, coverage = 0.97, iter = 1)
+#sample_sums(ps_rare3)
 # Check results
-#plot(sample_sums(ps_rare3), sample_sums(ps_sample)); abline(0,1)
-#plot(sample_sums(ps_rare3), sample_sums(ps_rare)); abline(0,1)
-#plot(sample_sums(ps_rare3), sample_sums(ps_rare2)); abline(0,1)
+#plot(sample_sums(ps_rare2), sample_sums(ps_sample)); abline(0,1)
+#plot(sample_sums(ps_rare2), sample_sums(ps_rare)); abline(0,1)
+#plot(sample_sums(ps_rare2), sample_sums(ps_rare3)); abline(0,1)
 
