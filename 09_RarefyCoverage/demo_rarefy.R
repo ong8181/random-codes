@@ -30,7 +30,9 @@ all(colnames(asv_sheet) == rownames(tax_sheet))
 ps_all <- phyloseq(otu_table(asv_sheet, taxa_are_rows = FALSE),
                    sample_data(sample_sheet),
                    tax_table(as.matrix(tax_sheet)))
-ps_sample <- ps_all %>% subset_samples(sample_nc == "sample" & Site == "sea")
+ps_sample <- ps_all %>%
+  subset_samples(sample_nc == "sample" & Site == "sea") %>%
+  prune_taxa(taxa_sums(.) > 0, .)
 sample_sums(ps_sample)
 
 
@@ -45,24 +47,46 @@ sample_data(ps_rare)
 # ----------------------------------------------- #
 # Visualize rarefaction curve
 # ----------------------------------------------- #
-(g1 <- plot_rarefy(ps_sample, ps_rare))
-(g2 <- plot_rarefy(ps_sample, ps_rare, plot_rarefied_point = FALSE))
+g1 <- plot_rarefy(ps_sample, ps_rare, rarefy_step = 10)
+g1 + xlim(0, 4000)
+#(g2 <- plot_rarefy(ps_sample, ps_rare, plot_rarefied_point = FALSE, rarefy_step = 10))
 
 
 # ----------------------------------------------- #
-# metagMisc pakcage of R
+# iNEXT-version
+# ----------------------------------------------- #
+library(iNEXT)
+
+# iNEXT-version rarefaction
+ps_rare3 <- rarefy_even_coverage_inext(ps_sample, coverage = 0.97)
+sample_data(ps_rare3)
+
+# iNEXT-version rarefaction
+ps_rare_inext <- rarefy_even_coverage_inext(ps_sample, coverage = 0.97,
+                                            include_iNEXT_results = TRUE,
+                                            knots = 200, nboot = 1)
+# Visualize results
+g2 <- plot_rarefy_inext(ps_rare_inext)
+g2 + xlim(0, 4000)
+
+
+
+# ----------------------------------------------- #
+# Appendix
+# ----------------------------------------------- #
+# ----------------------------------------------- #
+# metagMisc-version
 # ----------------------------------------------- #
 # Should be 'taxa_are_rows = TRUE'
-ps_all2 <- phyloseq(otu_table(t(asv_sheet), taxa_are_rows = TRUE),
-                    sample_data(sample_sheet),
-                    tax_table(as.matrix(tax_sheet)))
-ps_sample2 <- ps_all2 %>% subset_samples(sample_nc == "sample" & Site == "sea")
-
+#ps_all2 <- phyloseq(otu_table(t(asv_sheet), taxa_are_rows = TRUE),
+#                    sample_data(sample_sheet),
+#                    tax_table(as.matrix(tax_sheet)))
+#ps_sample2 <- ps_all2 %>% subset_samples(sample_nc == "sample" & Site == "sea")
 # Calculate coverage and rarefy
-metagMisc::phyloseq_coverage(ps_sample2)
-ps_rare2 <- metagMisc::phyloseq_coverage_raref(ps_sample2, coverage = 0.97, iter = 1)
-sample_sums(ps_rare2)
+#ps_rare2 <- metagMisc::phyloseq_coverage_raref(ps_sample2, coverage = 0.97, iter = 1)
+#sample_sums(ps_rare2)
+# Check results
+#plot(sample_sums(ps_rare3), sample_sums(ps_sample)); abline(0,1)
+#plot(sample_sums(ps_rare3), sample_sums(ps_rare)); abline(0,1)
+#plot(sample_sums(ps_rare3), sample_sums(ps_rare2)); abline(0,1)
 
-# Check correspondence
-plot(sample_sums(ps_rare), sample_sums(ps_rare2))
-abline(0, 1)
