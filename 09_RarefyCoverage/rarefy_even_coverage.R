@@ -218,11 +218,10 @@ plot_rarefy <- function (ps_obj,
 #remove_not_rarefied = FALSE
 #ran_seed = 1234
 
-rarefy_even_coverage_inext <-  function(ps_obj,
+rarefy_coverage_inext <-  function(ps_obj,
                                         coverage = 0.97,
                                         remove_not_rarefied = FALSE,
                                         include_iNEXT_results = FALSE,
-                                        rarefy_step = 10, # Only valid if include_rarefaction_curve = TRUE 
                                         nboot = 50,       # Only valid if include_rarefaction_curve = TRUE
                                         knots = 40,       # Only valid if include_rarefaction_curve = TRUE
                                         ran_seed = 1234

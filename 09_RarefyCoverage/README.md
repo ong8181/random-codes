@@ -6,7 +6,7 @@ This is a convenient function to perform coverage-based rarefaction. `phyloseq` 
 ps_rare <- rarefy_even_coverage(ps_sample, coverage = 0.97, rarefy_step = 10)
 
 # iNEXT version
-ps_rare2 <- rarefy_even_coverage_inext(ps_sample, coverage = 0.97)
+ps_rare2 <- rarefy_coverage_inext(ps_sample, coverage = 0.97)
 ```
 
 In addition, results of the coverage-based rarefaction can be checked by visualizing the rarefaction curves.
@@ -16,9 +16,9 @@ In addition, results of the coverage-based rarefaction can be checked by visuali
 plot_rarefy(ps_sample, ps_rare)
 
 # iNEXT version
-ps_rare_inext <- rarefy_even_coverage_inext(ps_sample, coverage = 0.97,
-                                            include_iNEXT_results = TRUE,
-                                            knots = 200, nboot = 1)
+ps_rare_inext <- rarefy_coverage_inext(ps_sample, coverage = 0.97,
+                                       include_iNEXT_results = TRUE,
+                                       knots = 200, nboot = 1)
 plot_rarefy_inext(ps_rare_inext)
 ```
 
