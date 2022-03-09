@@ -49,7 +49,6 @@ sample_data(ps_rare)
 # ----------------------------------------------- #
 g1 <- plot_rarefy(ps_sample, ps_rare, rarefy_step = 10)
 g1 + xlim(0, 4000)
-#(g2 <- plot_rarefy(ps_sample, ps_rare, plot_rarefied_point = FALSE, rarefy_step = 10))
 
 
 # ----------------------------------------------- #
