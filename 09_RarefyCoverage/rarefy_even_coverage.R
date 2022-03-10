@@ -267,7 +267,7 @@ rarefy_coverage_inext <-  function(ps_obj,
     map2(., inext_reads, function(x,y) iNEXT:::Chat.Ind(x,y)) %>% unlist
   
   # Get rarefied counts
-  rrlist <- com_mat[rarefy_id,] %>% t %>% array_tree(1) %>%
+  rrlist <- com_mat[,rarefy_id] %>% t %>% array_tree(1) %>%
     list(x = ., y = inext_reads %>% array_tree)
   #rarefied_count_list <- rrlist %>% pmap(function(x,y) rrarefy(x, y))
   ## Repeat three rarefactions to mitigate random sampling effects
@@ -310,7 +310,8 @@ rarefy_coverage_inext <-  function(ps_obj,
            original_coverage = inext_max_sc,
            rarefied_reads = sample_sums(ps_rare),
            rarefied_n_taxa = rowSums(otu_table(ps_rare) > 0),
-           rarefied_coverage = inext_coverage)
+           rarefied_coverage = NA)
+  sample_data(ps_rare)[rarefy_id,"rarefied_coverage"] <- inext_coverage
   
   # Output message
   if (any(!rarefy_id)) {
