@@ -1,5 +1,7 @@
-# A convenient function of coverage-based rarefaction and its visualization
-This is a convenient function to perform coverage-based rarefaction. `phyloseq` object can be easily rarefied based on a user-specified coverage by executing the following command.
+# Convenient functions for coverage-based rarefaction and its visualization
+This repository includes convenient functions to perform coverage-based rarefaction. `phyloseq` object can be easily rarefied based on a user-specified coverage by the following command.
+
+Currently, `vegan` version and `iNEXT` version are implemented, but `vegan` version will be deleted in near future.
 
 ```{r}
 # vegan::rarefy version
