@@ -219,12 +219,12 @@ plot_rarefy <- function (ps_obj,
 #ran_seed = 1234
 
 rarefy_coverage_inext <-  function(ps_obj,
-                                        coverage = 0.97,
-                                        remove_not_rarefied = FALSE,
-                                        include_iNEXT_results = FALSE,
-                                        nboot = 50,       # Only valid if include_rarefaction_curve = TRUE
-                                        knots = 40,       # Only valid if include_rarefaction_curve = TRUE
-                                        ran_seed = 1234
+                                   coverage = 0.97,
+                                   remove_not_rarefied = FALSE,
+                                   include_iNEXT_results = FALSE,
+                                   nboot = 50,       # Only valid if include_rarefaction_curve = TRUE
+                                   knots = 40,       # Only valid if include_rarefaction_curve = TRUE
+                                   ran_seed = 1234
 ){
   # Set random seed
   set.seed(ran_seed)
@@ -245,6 +245,8 @@ rarefy_coverage_inext <-  function(ps_obj,
   rarefy_id <- (coverage < inext_max_sc)
   if (all(!rarefy_id)) {
     stop("Depths of all samples were not sufficient for the rarefaction! Try a decreased coverage.")
+  } else if (any(!rarefy_id)) {
+    warning("Depths of some samples were not sufficient for the rarefaction.")
   }
   
   # Do iNEXT
@@ -262,11 +264,11 @@ rarefy_coverage_inext <-  function(ps_obj,
   inext_reads <- com_mat[,rarefy_id] %>% array_tree(2) %>%
     map(function(x) coverage_to_samplesize(x, coverage)) %>% unlist
   inext_coverage <- com_mat[,rarefy_id] %>% array_tree(2) %>%
-    map2(., inext_reads[rarefy_id], function(x,y) iNEXT:::Chat.Ind(x,y)) %>% unlist
+    map2(., inext_reads, function(x,y) iNEXT:::Chat.Ind(x,y)) %>% unlist
   
   # Get rarefied counts
   rrlist <- com_mat[rarefy_id,] %>% t %>% array_tree(1) %>%
-    list(x = ., y = inext_reads[rarefy_id] %>% array_tree)
+    list(x = ., y = inext_reads %>% array_tree)
   #rarefied_count_list <- rrlist %>% pmap(function(x,y) rrarefy(x, y))
   ## Repeat three rarefactions to mitigate random sampling effects
   ## This increases computation time
@@ -285,7 +287,7 @@ rarefy_coverage_inext <-  function(ps_obj,
   # Combined as data.frame
   rarefied_count <- as.data.frame(do.call(rbind, rarefied_count_list))
   #rowSums(rarefied_count)
-  rownames(rarefied_count) <- names(inext_reads[rarefy_id])
+  rownames(rarefied_count) <- names(inext_reads)
   rarefied_sp <- rowSums(rarefied_count > 0)
   
   # Replace original data
@@ -302,7 +304,7 @@ rarefy_coverage_inext <-  function(ps_obj,
   # Add rarefied/not-rarefied information
   sample_data(ps_rare) <- sample_data(ps_rare) %>%
     data.frame %>%
-    mutate(rarefied = as.logical(!is.na(inext_reads)),
+    mutate(rarefied = as.logical(rarefy_id),
            original_reads = sample_sums(ps_obj),
            original_n_taxa = rowSums(otu_table(ps_obj) > 0),
            original_coverage = inext_max_sc,
