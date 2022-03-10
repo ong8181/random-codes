@@ -327,7 +327,7 @@ rarefy_coverage_inext <-  function(ps_obj,
   # Add rarefied OR not_rarefied information to the sample data
   if (remove_not_rarefied) {
     # Remove not-rarefied samples
-    ps_rare <- ps_rare %>% prune_samples(all_names[rarefy_id], .)
+    ps_rare <- ps_rare %>% prune_samples(all_names[!rarefy_id], .)
     # Return rarefied phyloseq object
     message("Rarefied samples were removed from output as you specified.")
   } else {
