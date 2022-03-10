@@ -316,7 +316,7 @@ rarefy_coverage_inext <-  function(ps_obj,
   # Output message
   if (any(!rarefy_id)) {
     message1 <- sprintf("Following samples were NOT rarefied: %s\n",
-                        all_names[rarefy_id] %>%
+                        all_names[!rarefy_id] %>%
                           paste(collapse=" "))
   } else {
     message1 <- "All samples were successfully rarefied!\n"
