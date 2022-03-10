@@ -245,9 +245,9 @@ rarefy_coverage_inext <-  function(ps_obj,
   rarefy_id <- (coverage < inext_max_sc)
   if (all(!rarefy_id)) {
     stop("Depths of all samples were not sufficient for the rarefaction! Try a decreased coverage.")
-  } else if (any(!rarefy_id)) {
-    warning("Depths of some samples were not sufficient for the rarefaction.")
-  }
+  } #else if (any(!rarefy_id)) {
+    #warning("Depths of some samples were not sufficient for the rarefaction.")
+    #}
   
   # Do iNEXT
   if (include_iNEXT_results) {
