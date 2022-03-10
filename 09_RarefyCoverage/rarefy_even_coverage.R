@@ -269,19 +269,19 @@ rarefy_coverage_inext <-  function(ps_obj,
   # Get rarefied counts
   rrlist <- com_mat[,rarefy_id] %>% t %>% array_tree(1) %>%
     list(x = ., y = inext_reads %>% array_tree)
-  #rarefied_count_list <- rrlist %>% pmap(function(x,y) rrarefy(x, y))
+  rarefied_count_list <- rrlist %>% pmap(function(x,y) rrarefy(x, y))
   ## Repeat three rarefactions to mitigate random sampling effects
   ## This increases computation time
-  rarefied_count_list1 <- rrlist %>% pmap(function(x,y) rrarefy(x, y))
-  rarefied_count_list2 <- rrlist %>% pmap(function(x,y) rrarefy(x, y))
-  rarefied_count_list3 <- rrlist %>% pmap(function(x,y) rrarefy(x, y))
-  rarefied_count_list <- rarefied_count_list1 # temproal object
-  for (j in 1:length(rrlist[[1]])) {
-    rarefied_count_list_tmp <- floor(colMeans(rbind(rarefied_count_list1[[j]], 
-                                                    rarefied_count_list2[[j]], 
-                                                    rarefied_count_list3[[j]])))
-    rarefied_count_list[[j]] <- rarefied_count_list_tmp
-  }
+  #rarefied_count_list1 <- rrlist %>% pmap(function(x,y) rrarefy(x, y))
+  #rarefied_count_list2 <- rrlist %>% pmap(function(x,y) rrarefy(x, y))
+  #rarefied_count_list3 <- rrlist %>% pmap(function(x,y) rrarefy(x, y))
+  #rarefied_count_list <- rarefied_count_list1 # temproal object
+  #for (j in 1:length(rrlist[[1]])) {
+  #  rarefied_count_list_tmp <- floor(colMeans(rbind(rarefied_count_list1[[j]], 
+  #                                                  rarefied_count_list2[[j]], 
+  #                                                  rarefied_count_list3[[j]])))
+  #  rarefied_count_list[[j]] <- rarefied_count_list_tmp
+  #}
   
   ############### Until Here ##############
   # Combined as data.frame
@@ -332,7 +332,7 @@ rarefy_coverage_inext <-  function(ps_obj,
     message("Rarefied samples were removed from output as you specified.")
   } else {
     # Return rarefied phyloseq object
-    message2 <- "Rarefied/not-rarefied samples were kept in the phyloseq object."
+    message2 <- "Not-rarefied samples were kept in the phyloseq object."
     message3 <- "Sequence reads of the not-rarefied samples were not changed."
     message4 <- "Please check \'rarefied\' column of sample_data()."
     message(message2); message(message3); message(message4)
