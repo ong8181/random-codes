@@ -17,10 +17,13 @@ rarefy_even_coverage <-  function(ps_obj,
                                   ran_seed = 1234)
 ```
 
+### 重要パラメータ
 - `ps_obj`: `phyloseq` オブジェクト.
 - `coverage`:  カバレッジ (デフォルト = 97%)
-- `remove_not_rarefied`: 指定されたカバレッジに届かないサンプルを出力から除くかどうか.
 - `include_iNEXT_results`: rarefaction カーブを図示するための `iNEXT` の結果を出力するかどうか. `TRUE` とすると返り値はリストとなり、１つ目の要素が `phyloseq` オブジェクト、２つ目の要素が `iNEXT` の結果となります. また、`TRUE` とすると計算時間が増大します. `FALSE` の場合は `phyloseq` オブジェクトのみが出力されます.
+
+### その他のパラメータ
+- `remove_not_rarefied`: 指定されたカバレッジに届かないサンプルを出力から除くかどうか.
 - `nboot`: `iNEXT` 関数の `nboot` を指定 (`include_iNEXT_results = TRUE` の場合のみ有効).
 - `knots`: `iNEXT` 関数の `knots` を指定 (`include_iNEXT_results = TRUE` の場合のみ有効). rarefaction カーブを描くための点 (knot) の数. `knots` の数が少ないと rarefaction カーブがカクカクします.
 - `n_rarefy_iter`: OTU テーブルを何回 rarefy するか. 数を増やすとランダムサンプリングに起因する誤差を軽減できます (デフォルト = 1).
