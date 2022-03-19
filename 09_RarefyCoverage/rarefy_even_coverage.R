@@ -34,7 +34,7 @@ rarefy_even_coverage <-  function(ps_obj,
                                   knots = 50,       # Only valid if include_rarefaction_curve = TRUE
                                   n_rarefy_iter = 1,
                                   rarefy_average_method = "round",
-                                  sample_method = "rarefaction_subsample",
+                                  sample_method = "phyloseq",
                                   ran_seed = 1234
 ){
   # Set random seed
@@ -96,7 +96,7 @@ rarefy_even_coverage <-  function(ps_obj,
         }
       }
     }
-  } else if (sample_method == "rarefaction_subsample") {
+  } else if (sample_method == "phyloseq") {
     for (j in 1:n_rarefy_iter) {
       rarefied_count_list_tmp <- rrlist %>%
         pmap(function(x,y) phyloseq:::rarefaction_subsample(x, y, replace = FALSE))
