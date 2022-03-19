@@ -46,9 +46,9 @@ ps_rare <- ps_rare_raw[[1]]
 plot_rarefy(ps_rare_raw)
 ```
 
+＊OTU テーブルを rarefaction するときにランダムサンプリングしているので、下の図では `iNEXT()` で描いた rarefaction カーブから、実際のサンプリング値 (図中の点) は少しずれています.
 <img src="img/rarefy_plot.png" width="800px">
 
-＊OTU テーブルを rarefaction するときにランダムサンプリングしているので、`iNEXT()` で描いた rarefaction カーブから、実際のサンプリング値 (図中の点) は少しずれています.
 
 
 
@@ -104,5 +104,5 @@ In addition, results of the coverage-based rarefaction can be checked by visuali
 plot_rarefy(ps_rare_raw)
 ```
 
+*Note: Points in the below figure are not on the rarefaction curves probably due to the random sampling effects.
 <img src="img/rarefy_plot.png" width="800px">
-*Note: Points in the above figure are not on the rarefaction curves probably due to the random sampling effects.
