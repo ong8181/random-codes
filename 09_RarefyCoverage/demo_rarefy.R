@@ -8,6 +8,8 @@
 # Load libraries and function
 library(tidyverse); packageVersion("tidyverse") # 1.3.1
 library(phyloseq); packageVersion("phyloseq") # 1.38.0
+library(iNEXT); packageVersion("iNEXT") # 2.0.20
+library(ggsci); packageVersion("ggsci") # 2.9
 source("rarefy_even_coverage.R")
 
 
@@ -39,7 +41,14 @@ sample_sums(ps_sample)
 # ----------------------------------------------- #
 # Perform coverage-based rarefaction
 # ----------------------------------------------- #
-ps_rare <- rarefy_even_coverage(ps_sample, coverage = 0.97, rarefy_step = 10)
+set.seed(1234)
+ps_rare_raw <- rarefy_even_coverage(ps_sample,
+                                    coverage = 0.97,
+                                    knots = 200,
+                                    n_rarefy_iter = 100,
+                                    rarefy_average_method = "floor",
+                                    include_iNEXT_results = TRUE)
+ps_rare <- ps_rare_raw[[1]] # Extract phyloseq object
 sample_sums(ps_rare)
 sample_data(ps_rare)
 
@@ -47,29 +56,11 @@ sample_data(ps_rare)
 # ----------------------------------------------- #
 # Visualize rarefaction curve
 # ----------------------------------------------- #
-g1 <- plot_rarefy(ps_sample, ps_rare, rarefy_step = 10)
-g1 + xlim(0, 4000)
-
-
-# ----------------------------------------------- #
-# iNEXT-version
-# ----------------------------------------------- #
-library(iNEXT)
-
-# iNEXT-version rarefaction
-# (Faster than vegan::rarefy version)
-ps_rare2 <- rarefy_coverage_inext(ps_sample, coverage = 0.97)
-sample_data(ps_rare2)
-
-# Include iNEXT results in the output for visualization
-# (It takes more time to calculate rarefaction curve)
-ps_rare_inext <- rarefy_coverage_inext(ps_sample, coverage = 0.97,
-                                       include_iNEXT_results = TRUE,
-                                       knots = 200, nboot = 1)
-# Visualize results
-g2 <- plot_rarefy_inext(ps_rare_inext)
-g2 + xlim(0, 4000)
-
+g1 <- plot_rarefy(ps_rare_raw)
+g1 <- g1 + coord_cartesian(xlim = c(0, 4000)) +
+  scale_color_igv()
+#ggsave(file = "img/rarefy_plot.png",
+#       plot = g1, width = 8, height = 6)
 
 
 # ----------------------------------------------- #
