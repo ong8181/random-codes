@@ -12,7 +12,17 @@ require(vegan)
 # -------------------------------------------------------------------- #
 # --------------------- iNEXT package version ------------------------ #
 # -------------------------------------------------------------------- #
-
+# For debug
+#ps_obj = ps_sample
+#coverage = 0.97
+#remove_not_rarefied = FALSE
+#include_iNEXT_results = TRUE
+#nboot = 40       # Only valid if include_rarefaction_curve = TRUE
+#knots = 50       # Only valid if include_rarefaction_curve = TRUE
+#n_rarefy_iter = 100
+#rarefy_average_method = "round"
+#sample_method = "rarefaction_subsample"
+#ran_seed = 1234
 # ---------------------------------------------- #
 # Coverage-based rarefaction: iNEXT version
 # ---------------------------------------------- #
@@ -23,7 +33,8 @@ rarefy_even_coverage <-  function(ps_obj,
                                   nboot = 40,       # Only valid if include_rarefaction_curve = TRUE
                                   knots = 50,       # Only valid if include_rarefaction_curve = TRUE
                                   n_rarefy_iter = 100,
-                                  rarefy_average_method = "round",
+                                  rarefy_average_method = "floor",
+                                  sample_method = "rarefaction_subsample",
                                   ran_seed = 1234
 ){
   # Set random seed
@@ -71,17 +82,37 @@ rarefy_even_coverage <-  function(ps_obj,
     list(x = ., y = inext_reads %>% array_tree)
   ## Repeat three rarefactions to mitigate random sampling effects
   ## This increases computation time
-  for (j in 1:n_rarefy_iter) {
-    rarefied_count_list_tmp <- rrlist %>% pmap(function(x,y) rrarefy(x, y))
-    if (j == 1) {
-      rarefied_count_list <- rarefied_count_list_tmp # temporal object
-    } else {
-      for (k in 1:length(rrlist[[1]])) {
-        rarefied_count_list[[k]] <- rarefied_count_list[[k]] %>%
-          rbind(rarefied_count_list_tmp[[k]]) %>% colSums
+  #sample_method = "rrarefy"
+  #sample_method = "rarefaction_subsample"
+  if (sample_method == "rrarefy") {
+    for (j in 1:n_rarefy_iter) {
+      rarefied_count_list_tmp <- rrlist %>% pmap(function(x,y) rrarefy(x, y))
+      if (j == 1) {
+        rarefied_count_list <- rarefied_count_list_tmp # temporal object
+      } else {
+        for (k in 1:length(rrlist[[1]])) {
+          rarefied_count_list[[k]] <- rarefied_count_list[[k]] %>%
+            rbind(rarefied_count_list_tmp[[k]]) %>% colSums
+        }
       }
     }
+  } else if (sample_method == "rarefaction_subsample") {
+    for (j in 1:n_rarefy_iter) {
+      rarefied_count_list_tmp <- rrlist %>%
+        pmap(function(x,y) phyloseq:::rarefaction_subsample(x, y, replace = FALSE))
+      if (j == 1) {
+        rarefied_count_list <- rarefied_count_list_tmp # temporal object
+      } else {
+        for (k in 1:length(rrlist[[1]])) {
+          rarefied_count_list[[k]] <- rarefied_count_list[[k]] %>%
+            rbind(rarefied_count_list_tmp[[k]]) %>% colSums
+        }
+      }
+    }
+  } else {
+    stop("Invalid \'sample_method\'.")
   }
+  
   ## Take ceiling of the average
   if (rarefy_average_method == "round") {
     rarefied_count_list <- rarefied_count_list %>% map(function(x) round(x/n_rarefy_iter))

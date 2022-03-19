@@ -46,7 +46,8 @@ ps_rare_raw <- rarefy_even_coverage(ps_sample,
                                     coverage = 0.97,
                                     knots = 200,
                                     n_rarefy_iter = 100,
-                                    rarefy_average_method = "floor", # Specify how iterated rarefaction results are averaged. Default is "round". 
+                                    rarefy_average_method = "floor", # Specify how iterated rarefaction results are averaged. You may change.
+                                    sample_method = "rarefaction_subsample",
                                     include_iNEXT_results = TRUE)
 ps_rare <- ps_rare_raw[[1]] # Extract phyloseq object
 sample_sums(ps_rare)
@@ -70,15 +71,14 @@ g1 <- g1 + coord_cartesian(xlim = c(0, 4000)) +
 # metagMisc-version
 # ----------------------------------------------- #
 # Should be 'taxa_are_rows = TRUE'
-#ps_all2 <- phyloseq(otu_table(t(asv_sheet), taxa_are_rows = TRUE),
-#                    sample_data(sample_sheet),
-#                    tax_table(as.matrix(tax_sheet)))
-#ps_sample2 <- ps_all2 %>% subset_samples(sample_nc == "sample" & Site == "sea")
+ps_all2 <- phyloseq(otu_table(t(asv_sheet), taxa_are_rows = TRUE),
+                    sample_data(sample_sheet),
+                    tax_table(as.matrix(tax_sheet)))
+ps_sample2 <- ps_all2 %>% subset_samples(sample_nc == "sample" & Site == "sea")
 # Calculate coverage and rarefy
-#ps_rare3 <- metagMisc::phyloseq_coverage_raref(ps_sample2, coverage = 0.97, iter = 1)
-#sample_sums(ps_rare3)
+ps_rare2 <- metagMisc::phyloseq_coverage_raref(ps_sample2, coverage = 0.97, iter = 1)
+sample_sums(ps_rare2)
 # Check results
-#plot(sample_sums(ps_rare2), sample_sums(ps_sample)); abline(0,1)
-#plot(sample_sums(ps_rare2), sample_sums(ps_rare)); abline(0,1)
-#plot(sample_sums(ps_rare2), sample_sums(ps_rare3)); abline(0,1)
-
+plot(sample_sums(ps_rare2), sample_sums(ps_rare)); abline(0,1)
+plot(colSums(otu_table(ps_rare2)>0),
+     rowSums(otu_table(ps_rare)>0)); abline(0,1)
