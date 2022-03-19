@@ -46,7 +46,7 @@ ps_rare_raw <- rarefy_even_coverage(ps_sample,
                                     coverage = 0.97,
                                     knots = 200,
                                     n_rarefy_iter = 100,
-                                    rarefy_average_method = "floor",
+                                    rarefy_average_method = "floor", # Specify how iterated rarefaction results are averaged. Default is "round". 
                                     include_iNEXT_results = TRUE)
 ps_rare <- ps_rare_raw[[1]] # Extract phyloseq object
 sample_sums(ps_rare)
