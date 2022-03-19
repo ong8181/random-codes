@@ -19,7 +19,7 @@ rarefy_even_coverage <-  function(ps_obj,
 
 ### 重要パラメータ
 - `ps_obj`: `phyloseq` オブジェクト.
-- `coverage`:  カバレッジ (デフォルト = 97%)
+- `coverage`:  カバレッジ (デフォルト = 0.97 [= 97%])
 - `include_iNEXT_results`: rarefaction カーブを図示するための `iNEXT` の結果を出力するかどうか. `TRUE` とすると返り値はリストとなり、１つ目の要素が `phyloseq` オブジェクト、２つ目の要素が `iNEXT` の結果となります. また、`TRUE` とすると計算時間が増大します. `FALSE` の場合は `phyloseq` オブジェクトのみが出力されます.
 
 ### その他のパラメータ
@@ -58,6 +58,35 @@ plot_rarefy(ps_rare_raw)
 This repository includes convenient functions to perform coverage-based rarefaction. `phyloseq` object can be easily rarefied based on a user-specified coverage by the following command. Functions implemented in `iNEXT` package is used. `rarefy_even_coverage` returns almost identical results with `phyloseq_coverage_raref` function in `metagMisc` (https://github.com/vmikk/metagMisc), but a phyloseq object with `taxa_are_rows = TRUE` or `taxa_are_rows = FALSE` is accepted. In addition, `rarefy_even_coverage` returns a rarefaction curve for visualization.
 
 For detail, please run `demo_rarefy.R`.
+
+## Description
+``` r
+rarefy_even_coverage <-  function(ps_obj,
+                                  coverage = 0.97,
+                                  remove_not_rarefied = FALSE,
+                                  include_iNEXT_results = FALSE,
+                                  nboot = 40,
+                                  knots = 50,
+                                  n_rarefy_iter = 1,
+                                  rarefy_average_method = "round",
+                                  sample_method = "phyloseq",
+                                  ran_seed = 1234)
+```
+
+### Important parameters
+- `ps_obj`: `phyloseq` object.
+- `coverage`:  User-specified parameter (default = 0.97 [= 97%])
+- `include_iNEXT_results`: Include `iNEXT` results or not. If `TRUE`, the function returns a list which contains two elements. The first object is a rarefied phyloseq object, and the second object is an iNEXT result. Also, if `TRUE`, computation time will increase. If`FALSE`, it returns a rarefied`phyloseq` object only.
+
+### Other parameters
+- `remove_not_rarefied`: Remove samples of which coverage is lower than `coverage`.
+- `nboot`: Specifi `nboot` of `iNEXT` function (valid if `include_iNEXT_results = TRUE`).
+- `knots`: Specifi `knots` of `iNEXT` function (valid if `include_iNEXT_results = TRUE`).
+- `n_rarefy_iter`: The number of iterations of rarefactions (default = 1).
+- `rarefy_average_method`: If `n_rarefy_iter >= 2`, this argument determines how the multiple rarefactions are summarized. `rarefy_average_method = "round"` uses `round()`. `rarefy_average_method = "floor"` uses `floor()`. `rarefy_average_method = "ceiling"` uses `ceiling()`.
+- `sample_method`: Specify which function is used for rarefaction. `sample_method = "vegan"` uses `vegan::rrarefy()`, while `sample_method = "phyloseq"` uses `phyloseq:::rarefaction_subsample()`.
+- `ran_seed`: Random seed.
+
 
 ## Example
 ```{r}
