@@ -48,8 +48,8 @@ plot_rarefy(ps_rare_raw)
 
 <img src="img/rarefy_plot.png" width="800px">
 
+＊OTU テーブルを rarefaction するときにランダムサンプリングしているので、`iNEXT()` で描いた rarefaction カーブから、実際のサンプリング値 (図中の点) は少しずれています.
 
-## 実行例
 
 
 
@@ -105,3 +105,4 @@ plot_rarefy(ps_rare_raw)
 ```
 
 <img src="img/rarefy_plot.png" width="800px">
+*Note: Points in the above figure are not on the rarefaction curves probably due to the random sampling effects.
