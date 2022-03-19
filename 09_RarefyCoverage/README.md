@@ -27,7 +27,7 @@ rarefy_even_coverage <-  function(ps_obj,
 - `nboot`: `iNEXT` 関数の `nboot` を指定 (`include_iNEXT_results = TRUE` の場合のみ有効).
 - `knots`: `iNEXT` 関数の `knots` を指定 (`include_iNEXT_results = TRUE` の場合のみ有効). rarefaction カーブを描くための点 (knot) の数. `knots` の数が少ないと rarefaction カーブがカクカクします.
 - `n_rarefy_iter`: OTU テーブルを何回 rarefy するか. 数を増やすとランダムサンプリングに起因する誤差を軽減できます (デフォルト = 1).
-- `rarefy_average_method`: `n_rarefy_iter >= 2` のとき、複数回の rarefaction の結果をどのように要約するか. `round` = `round()` を使って平均値を丸めます. `floor` = `floor()` を使って丸めるので、複数回の rarefaction で平均して 1 回以上その OTU が選択されない場合はその OTU は 0 となります. `ceiling` = `ceiling()` を使って丸めるので、複数回の rarefaction のうち、1 回でもその OTU が選択された場合はその OTU は 1 となります. 
+- `rarefy_average_method`: `n_rarefy_iter >= 2` のとき、複数回の rarefaction の結果をどのように要約するか. `rarefy_average_method = "round"` のときは `round()` を使って平均値を丸めます. `rarefy_average_method = "floor"` のときは `floor()` を使って丸めるので、複数回の rarefaction で平均して 1 回以上その OTU が選択されない場合はその OTU は 0 となります. `rarefy_average_method = "ceiling"` のときは `ceiling()` を使って丸めるので、複数回の rarefaction のうち、1 回でもその OTU が選択された場合はその OTU は 1 となります. 
 - `sample_method`: rarefaction の際に `vegan::rrarefy()` を使うか (`sample_method = "vegan"`) 、`phyloseq:::rarefaction_subsample()` を使うか (`sample_method = "phyloseq"`).
 - `ran_seed`: ランダムシード値.
 
