@@ -1,6 +1,6 @@
 ####
 #### Coverage-based rarefaction
-#### 2022.3.8 Ushio
+#### 2022.3.19 Ushio
 ####
 
 #setwd("09_RarefyCoverage/")
