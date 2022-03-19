@@ -33,7 +33,7 @@ rarefy_even_coverage <-  function(ps_obj,
                                   nboot = 40,       # Only valid if include_rarefaction_curve = TRUE
                                   knots = 50,       # Only valid if include_rarefaction_curve = TRUE
                                   n_rarefy_iter = 100,
-                                  rarefy_average_method = "floor",
+                                  rarefy_average_method = "round",
                                   sample_method = "rarefaction_subsample",
                                   ran_seed = 1234
 ){
