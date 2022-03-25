@@ -12,17 +12,6 @@ require(vegan)
 # -------------------------------------------------------------------- #
 # --------------------- iNEXT package version ------------------------ #
 # -------------------------------------------------------------------- #
-# For debug
-#ps_obj = ps_sample
-#coverage = 0.97
-#remove_not_rarefied = FALSE
-#include_iNEXT_results = TRUE
-#nboot = 40       # Only valid if include_rarefaction_curve = TRUE
-#knots = 50       # Only valid if include_rarefaction_curve = TRUE
-#n_rarefy_iter = 100
-#rarefy_average_method = "round"
-#sample_method = "rarefaction_subsample"
-#ran_seed = 1234
 # ---------------------------------------------- #
 # Coverage-based rarefaction: iNEXT version
 # ---------------------------------------------- #
@@ -70,9 +59,7 @@ rarefy_even_coverage <-  function(ps_obj,
   rarefy_id <- (coverage < inext_max_sc)
   if (all(!rarefy_id)) {
     stop("Depths of all samples were not sufficient for the rarefaction! Try a decreased coverage.")
-  } #else if (any(!rarefy_id)) {
-  #warning("Depths of some samples were not sufficient for the rarefaction.")
-  #}
+  }
   
   # Do iNEXT
   if (include_iNEXT_results) {
@@ -94,10 +81,7 @@ rarefy_even_coverage <-  function(ps_obj,
   # Get rarefied counts
   rrlist <- com_mat[,rarefy_id] %>% t %>% array_tree(1) %>%
     list(x = ., y = inext_reads %>% array_tree)
-  ## Repeat three rarefactions to mitigate random sampling effects
   ## This increases computation time
-  #sample_method = "rrarefy"
-  #sample_method = "rarefaction_subsample"
   if (sample_method == "rrarefy") {
     for (j in 1:n_rarefy_iter) {
       rarefied_count_list_tmp <- rrlist %>% pmap(function(x,y) rrarefy(x, y))
@@ -460,7 +444,6 @@ plot_rarefy_vegan <- function (ps_obj,
       geom_abline(slope = rare_df2_slope,
                   intercept = rare_df2_intercept,
                   linetype = 3, size = 0.5, alpha = 0.8) +
-      #xlim(0,10000) +
       NULL
   }
   
