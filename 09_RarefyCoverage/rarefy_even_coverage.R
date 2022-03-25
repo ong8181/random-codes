@@ -37,6 +37,20 @@ rarefy_even_coverage <-  function(ps_obj,
                                   sample_method = "phyloseq",
                                   ran_seed = 1234
 ){
+  # Check arguments
+  if (!(remove_not_rarefied %in% c(TRUE, FALSE))) {
+    stop("Invalid \'remove_not_rarefied\'. Should be TRUE or FALSE.")
+  }
+  if (!(include_iNEXT_results %in% c(TRUE, FALSE))) {
+    stop("Invalid \'include_iNEXT_results\'. Should be TRUE or FALSE.")
+  }
+  if (!(sample_method %in% c("rrarefy", "phyloseq"))) {
+    stop("Invalid \'sample_method\'. Should be \'rrarefy\' or \'phyloseq\'.")
+  }
+  if (!(rarefy_average_method %in% c("round", "ceiling", "floor"))) {
+    stop("Invalid \'rarefy_average_method\'. Should be \'round\', \'ceiling\', or \'floor\'.")
+  }
+  
   # Set random seed
   set.seed(ran_seed)
   
@@ -109,8 +123,6 @@ rarefy_even_coverage <-  function(ps_obj,
         }
       }
     }
-  } else {
-    stop("Invalid \'sample_method\'.")
   }
   
   ## Take ceiling of the average
@@ -120,8 +132,6 @@ rarefy_even_coverage <-  function(ps_obj,
     rarefied_count_list <- rarefied_count_list %>% map(function(x) ceiling(x/n_rarefy_iter))
   } else if (rarefy_average_method == "floor") {
     rarefied_count_list <- rarefied_count_list %>% map(function(x) floor(x/n_rarefy_iter))
-  } else {
-    stop("Invalid \'rarefy_average_method\'.")
   }
   ## Other options
   
