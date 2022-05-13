@@ -1,0 +1,124 @@
+query	superkingdom	kingdom	phylum	subphylum	superclass	class	subclass	infraclass	cohort	superorder	order	suborder	infraorder	parvorder	superfamily	family	subfamily	genus	species
+OTU00001																			
+OTU00002																			
+OTU00003	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia				Mytiloida				Mytiloidea	Mytilidae	Mytilinae	Mytilus	
+OTU00004	Eukaryota	Metazoa	Chordata	Craniata	Actinopterygii	Actinopteri	Neopterygii	Teleostei	Euteleosteomorpha										
+OTU00005	Eukaryota	Metazoa	Arthropoda	Crustacea	Multicrustacea	Hexanauplia	Thecostraca	Cirripedia		Thoracica	Sessilia								
+OTU00006	Eukaryota	Metazoa	Chordata	Craniata															
+OTU00007	Eukaryota	Metazoa	Arthropoda	Crustacea	Multicrustacea	Hexanauplia	Thecostraca	Cirripedia		Thoracica	Sessilia					Chthamalidae			
+OTU00008	Eukaryota	Metazoa	Chordata	Craniata	Actinopterygii	Actinopteri	Neopterygii	Teleostei	Euteleosteomorpha										
+OTU00009	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia				Mytiloida				Mytiloidea	Mytilidae	Mytilinae	Mytilus	Mytilus trossulus
+OTU00010																			
+OTU00011	Eukaryota	Metazoa	Chordata	Craniata	Actinopterygii	Actinopteri	Neopterygii	Teleostei											
+OTU00012																			
+OTU00013	Eukaryota	Metazoa	Mollusca			Gastropoda													
+OTU00014	Eukaryota	Metazoa	Chordata	Craniata	Actinopterygii	Actinopteri	Neopterygii	Teleostei	Euteleosteomorpha		Salmoniformes					Salmonidae			
+OTU00015	Eukaryota	Metazoa	Chordata	Craniata	Actinopterygii	Actinopteri	Neopterygii	Teleostei	Euteleosteomorpha		Osmeriformes								
+OTU00016																			
+OTU00017	Eukaryota	Metazoa	Arthropoda	Crustacea	Multicrustacea	Malacostraca	Eumalacostraca			Peracarida	Isopoda	Valvifera				Idoteidae		Pentidotea	
+OTU00018	Eukaryota	Metazoa	Mollusca			Gastropoda	Patellogastropoda								Lottioidea	Lottiidae		Lottia	
+OTU00019	Eukaryota	Metazoa	Echinodermata		Echinozoa	Echinoidea													
+OTU00020																			
+OTU00021	Eukaryota	Metazoa	Hemichordata			Enteropneusta										Ptychoderidae			
+OTU00022																			
+OTU00023	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Venerida				Veneroidea	Veneridae		Saxidomus	
+OTU00024																			
+OTU00025	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia									
+OTU00026																			
+OTU00027	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia				Mytiloida				Mytiloidea	Mytilidae	Mytilinae	Mytilus	Mytilus trossulus
+OTU00028	Eukaryota	Metazoa	Arthropoda	Crustacea	Multicrustacea	Malacostraca	Eumalacostraca												
+OTU00029	Eukaryota	Metazoa	Arthropoda	Crustacea	Multicrustacea	Malacostraca	Eumalacostraca												
+OTU00030	Eukaryota	Metazoa	Chaetognatha			Sagittoidea					Aphragmophora	Ctenodontina				Sagittidae		Sagitta	Sagitta elegans
+OTU00031	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia				Mytiloida				Mytiloidea	Mytilidae	Mytilinae	Mytilus	
+OTU00032	Eukaryota	Metazoa	Chordata	Craniata	Sarcopterygii	Mammalia				Laurasiatheria	Carnivora	Caniformia							
+OTU00033																			
+OTU00034	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Myida				Myoidea	Myidae		Mya	
+OTU00035	Eukaryota	Metazoa	Arthropoda	Crustacea	Multicrustacea	Malacostraca	Eumalacostraca			Eucarida	Euphausiacea					Euphausiidae		Thysanoessa	
+OTU00036	Eukaryota	Metazoa	Arthropoda	Crustacea		Branchiopoda	Phyllopoda				Diplostraca	Cladocera	Anomopoda			Daphniidae			
+OTU00037	Eukaryota	Metazoa	Chordata	Craniata	Actinopterygii	Actinopteri	Neopterygii	Teleostei	Euteleosteomorpha										
+OTU00038	Eukaryota	Metazoa																	
+OTU00039	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia				Mytiloida				Mytiloidea	Mytilidae	Modiolinae	Modiolus	
+OTU00040	Eukaryota	Metazoa	Chordata	Craniata	Actinopterygii	Actinopteri	Neopterygii	Teleostei	Euteleosteomorpha										
+OTU00041	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia				Pectinida				Pectinoidea	Pectinidae		Chlamys	Chlamys hastata
+OTU00042																			
+OTU00043																			
+OTU00044	Eukaryota	Metazoa	Nemertea			Enopla	Hoplonemertea				Monostilifera	Eumonostilifera				Emplectonematidae		Paranemertes	
+OTU00045																			
+OTU00046	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Myida				Hiatelloidea	Hiatellidae		Panopea	
+OTU00047	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Myida				Myoidea	Myidae		Mya	
+OTU00048	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia				Mytiloida				Mytiloidea	Mytilidae	Modiolinae	Modiolus	
+OTU00049																			
+OTU00050	Eukaryota	Metazoa	Arthropoda	Crustacea	Multicrustacea	Malacostraca	Eumalacostraca			Peracarida	Isopoda					Sphaeromatidae		Exosphaeroma	
+OTU00051	Eukaryota	Metazoa																	
+OTU00052																			
+OTU00053	Eukaryota	Metazoa	Mollusca			Gastropoda													
+OTU00054	Eukaryota	Metazoa	Arthropoda																
+OTU00055	Eukaryota	Metazoa	Arthropoda	Crustacea	Multicrustacea	Malacostraca	Eumalacostraca			Peracarida	Isopoda					Sphaeromatidae		Exosphaeroma	
+OTU00056	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia				Mytiloida				Mytiloidea	Mytilidae	Mytilinae	Mytilus	
+OTU00057	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia				Mytiloida				Mytiloidea	Mytilidae	Mytilinae	Mytilus	
+OTU00058	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Cardiida				Tellinoidea	Tellinidae			
+OTU00059																			
+OTU00060	Eukaryota	Metazoa	Arthropoda	Crustacea	Multicrustacea	Malacostraca	Eumalacostraca			Eucarida	Decapoda	Pleocyemata	Brachyura		Cancroidea	Cancridae			
+OTU00061																			
+OTU00062	Eukaryota	Metazoa	Arthropoda	Hexapoda		Insecta	Pterygota	Neoptera	Endopterygota	Amphiesmenoptera	Lepidoptera	Glossata	Neolepidoptera	Heteroneura					
+OTU00063	Eukaryota	Metazoa	Arthropoda	Crustacea	Multicrustacea	Malacostraca	Eumalacostraca			Eucarida	Decapoda	Pleocyemata	Brachyura		Pinnotheroidea	Pinnotheridae			
+OTU00064																			
+OTU00065	Eukaryota	Metazoa	Mollusca																
+OTU00066	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia				Mytiloida				Mytiloidea	Mytilidae	Modiolinae	Modiolus	
+OTU00067	Eukaryota	Metazoa	Bryozoa			Gymnolaemata													
+OTU00068	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Adapedonta				Solenoidea	Solenidae		Solen	
+OTU00069	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Venerida				Veneroidea	Veneridae		Saxidomus	Saxidomus nuttalli
+OTU00070																			
+OTU00071	Eukaryota	Metazoa																	
+OTU00072	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia				Mytiloida				Mytiloidea	Mytilidae	Mytilinae	Mytilus	
+OTU00073	Eukaryota	Metazoa	Arthropoda	Crustacea		Branchiopoda	Phyllopoda				Diplostraca	Cladocera	Onychopoda			Podonidae			
+OTU00074	Eukaryota	Metazoa	Echinodermata		Asterozoa	Asteroidea				Forcipulatacea	Forcipulatida					Asteriidae			
+OTU00075	Eukaryota	Metazoa	Arthropoda	Crustacea	Multicrustacea	Malacostraca	Eumalacostraca			Eucarida	Decapoda	Pleocyemata	Brachyura		Majoidea				
+OTU00076																			
+OTU00077																			
+OTU00078																			
+OTU00079																			
+OTU00080	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Venerida				Veneroidea	Veneridae			
+OTU00081																			
+OTU00082	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Cardiida				Tellinoidea	Tellinidae		Macoma	
+OTU00083	Eukaryota	Metazoa	Nemertea			Pilidiophora					Heteronemertea					Lineidae		Maculaura	
+OTU00084	Eukaryota	Metazoa	Arthropoda	Crustacea	Multicrustacea	Malacostraca	Eumalacostraca			Peracarida	Amphipoda	Senticaudata	Corophiida	Caprellidira	Caprelloidea	Caprellidae		Caprella	
+OTU00085	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Myida				Hiatelloidea	Hiatellidae		Panopea	
+OTU00086																			
+OTU00087																			
+OTU00088	Eukaryota	Metazoa	Arthropoda	Crustacea	Multicrustacea	Malacostraca	Eumalacostraca			Peracarida	Amphipoda	Senticaudata	Hadziida		Calliopioidea	Pontogeneiidae		Pontogeneia	Pontogeneia rostrata
+OTU00089	Eukaryota	Metazoa	Bryozoa			Gymnolaemata					Cheilostomatida	Flustrina							
+OTU00090	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Cardiida				Tellinoidea	Tellinidae		Moerella	
+OTU00091	Eukaryota	Metazoa	Arthropoda	Hexapoda		Insecta	Pterygota	Neoptera	Endopterygota		Diptera								
+OTU00092	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Cardiida				Tellinoidea	Tellinidae			
+OTU00093	Eukaryota	Metazoa	Arthropoda																
+OTU00094	Eukaryota	Metazoa	Mollusca			Gastropoda	Caenogastropoda												
+OTU00095	Eukaryota	Metazoa	Arthropoda	Crustacea	Multicrustacea	Hexanauplia	Copepoda	Neocopepoda		Gymnoplea	Calanoida					Acartiidae		Acartia	Acartia longiremis
+OTU00096	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Cardiida				Tellinoidea				
+OTU00097	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia									
+OTU00098	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Venerida				Mactroidea	Mactridae		Tresus	
+OTU00099	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Galeommatida				Galeommatoidea				
+OTU00100	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Cardiida				Tellinoidea	Tellinidae			
+OTU00101	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Cardiida				Tellinoidea	Tellinidae			
+OTU00102	Eukaryota	Metazoa	Arthropoda	Crustacea	Multicrustacea	Malacostraca	Eumalacostraca			Eucarida	Decapoda	Pleocyemata	Brachyura		Majoidea	Epialtidae		Pugettia	
+OTU00103	Eukaryota	Metazoa	Arthropoda	Crustacea	Multicrustacea	Malacostraca	Eumalacostraca			Peracarida	Amphipoda	Senticaudata	Hadziida		Calliopioidea	Pontogeneiidae		Pontogeneia	
+OTU00104																			
+OTU00105	Eukaryota	Metazoa	Mollusca			Gastropoda	Vetigastropoda				Trochida				Trochoidea				
+OTU00106	Eukaryota	Metazoa	Nemertea			Palaeonemertea										Cephalothricidae		Cephalothrix	
+OTU00107	Eukaryota	Metazoa	Entoprocta													Loxosomatidae			
+OTU00108	Eukaryota	Metazoa	Arthropoda																
+OTU00109	Eukaryota	Metazoa	Nemertea			Pilidiophora					Heteronemertea					Cerebratulidae		Cerebratulus	
+OTU00110	Eukaryota	Metazoa	Mollusca			Gastropoda													
+OTU00111	Eukaryota	Metazoa	Mollusca			Gastropoda	Caenogastropoda				Littorinimorpha				Rissooidea	Rissoidae			
+OTU00112																			
+OTU00113	Eukaryota	Metazoa																	
+OTU00114	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Cardiida				Cardioidea	Cardiidae	Clinocardiinae		
+OTU00115	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Venerida				Veneroidea	Veneridae		Ruditapes	Ruditapes philippinarum
+OTU00116																			
+OTU00117	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Cardiida				Tellinoidea				
+OTU00118	Eukaryota	Metazoa	Chordata	Craniata	Sarcopterygii	Mammalia				Laurasiatheria	Artiodactyla	Whippomorpha	Cetacea	Odontoceti		Ziphiidae		Mesoplodon	
+OTU00119																			
+OTU00120	Eukaryota	Metazoa																	
+OTU00121																			
+OTU00122	Eukaryota	Metazoa	Mollusca			Bivalvia	Autobranchia	Euheterodonta		Imparidentia	Cardiida				Tellinoidea	Tellinidae			
+OTU00123	Eukaryota	Metazoa																	
