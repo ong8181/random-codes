@@ -3,7 +3,7 @@ This repository includes R and shell codes to reproduce and re-analyze data from
 
 ## If you want to reproduce the analysis by yourself
 1. Download sequence data from https://datadryad.org/stash/dataset/doi%253A10.5061%252Fdryad.mp040.
-2. Decompress the file and place the sequence data in `seqdata` folder in this repository.
+2. Decompress the file and move the sequence data (files in `doi_10.5061_dryad.mp040__v1` folder) to `seqdata` folder in this repository.
 3. Run `01_DemultiplexPrimerTrim.sh` to perform demultiplexing and primer trimming. Please change the working directory path specified in the code. `cutadapt` (https://cutadapt.readthedocs.io/) and `seqkit` (https://bioinf.shenwei.me/seqkit/) are required.
 4. Run `02_DADA2_PE.R` to denoise and generate ASVs. Please change the path to the demultiplexed and primer-trimmed sequence data.
 5. Run `03_OTUClustering.R` to generate 97% OTUs.
