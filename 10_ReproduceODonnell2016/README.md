@@ -14,5 +14,5 @@ This repository includes R and shell codes to reproduce and reanalyze data from 
 
 ## Results
 Figure 2, one of the main results, in O'Donnell et al. (2016) was successfully reproduced.
-<img src="06_ProtocolEffectOut/Reproduce_ODonnell2016_Fig2.pdf" width="800px">
+<img src="img/Reproduce_ODonnell2016_Fig2.png" width="800px">
 
