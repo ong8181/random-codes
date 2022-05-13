@@ -12,3 +12,4 @@ This repository contains random codes to learn and test methods. All of them are
 - 9 December 2021: "07_rDoAMP" created (R and Shell).
 - 9 January 2022: "08_TwinSurrogateRcpp" created (R and C++).
 - 8 March 2022: "09_RarefyCoverage" created (R).
+- 13 May 2022: "10_ReproduceODonnell2016" created (R and shell).
