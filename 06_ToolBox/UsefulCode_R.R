@@ -6,8 +6,13 @@
 # ----------------------------------------- #
 # Creat output folder
 # ----------------------------------------- #
+## Option 1
 od_name <- basename(rstudioapi::getSourceEditorContext()$path)
 (output_folder <- paste0(str_sub(od_name, end = -3), "Out")); rm(od_name)
+dir.create(output_folder)
+## Option 2
+ouput_folder <- rstudioapi::getSourceEditorContext()$path %>%
+   basename %>% str_sub(end = -3) %>% paste0("Out")
 dir.create(output_folder)
 
 
@@ -33,6 +38,9 @@ label_func <- function(x) {
 library(RColorBrewer)
 get_palette <- colorRampPalette(brewer.pal(8, "Paired"))
 get_palette(20)
+
+# Temperature
+g1 + xlab(expression(paste("Temperature (", degree, "C)")))
 
 # Add new line in expression()
 g1 + xlab(expression(atop(paste("Water temperature (", degree, "C)"), "(Maximum value)")))
