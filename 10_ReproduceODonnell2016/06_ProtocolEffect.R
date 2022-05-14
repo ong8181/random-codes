@@ -240,6 +240,3 @@ save(list = ls(all.names = TRUE),
 # Save session info
 writeLines(capture.output(sessionInfo()),
            paste0("00_SessionInfo/", output_folder, "_", substr(Sys.time(), 1, 10), ".txt"))
-
-
-

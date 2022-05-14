@@ -5,8 +5,8 @@
 ####
 
 #---------------------------------------------------------------------------------------#
-# REQIRED: fastp (https://github.com/OpenGene/fastp)
 # REQIRED: seqkit (https://bioinf.shenwei.me/seqkit)
+# REQIRED: cutadapt (https://cutadapt.readthedocs.io/)
 
 # -------------------------------------------- #
 # Step 0. Demultiplex and preparations

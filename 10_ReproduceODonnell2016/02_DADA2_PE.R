@@ -121,12 +121,6 @@ write.table(seqs_out, paste0(output_folder, "/ASV_seqs.fa"), col.names = FALSE, 
 write.csv(seqtab_nochim_for_csv, paste0(output_folder, "/seqtab_nochim.csv"))
 write.csv(track, paste0(output_folder, "/track.csv"))
 
-# Assign taxonomy (Standard DADA2 taxa assignment)
-#taxa <- assignTaxonomy(seqtab_nochim, "~/DADA2_DB/silva_nr_v132_train_set.fa.gz", multithread=TRUE)
-#taxa_print <- taxa # Removing sequence rownames for display only
-#rownames(taxa_print) <- NULL
-#head(taxa_print)
-
 # Save workspace
 #load("02_DADA2_ITSOut/02_DADA2_ITSOut.RData")
 rm(derepFs)

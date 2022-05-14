@@ -2,40 +2,6 @@
 #### F02. Helper functions
 ####
 
-# Refill "zero" samples to ASV/OTU table
-refill_no_read_samples <- function(seqtab_data,
-                                   sample_sheet,
-                                   id_col = "Sample_Name2") {
-  # Detect "zero" samples
-  zero_sample <- sample_sheet[,id_col][is.na(match(sample_sheet[,id_col], rownames(seqtab_data)))]
-  
-  # Refill the sequence table if "zero" samples exist
-  if(length(zero_sample) > 0){
-    # Generate dummy data frame
-    seqtab_data_tmp <- matrix(0, ncol = ncol(seqtab_data), nrow = nrow(sample_sheet))
-    rownames(seqtab_data_tmp) <- sample_sheet[,id_col]
-    colnames(seqtab_data_tmp) <- colnames(seqtab_data)
-    # Refill object
-    seqtab_data_tmp[match(rownames(seqtab_data), rownames(seqtab_data_tmp)),] <-
-      as.matrix(seqtab_data)
-    # Replace seq tables
-    seqtab_data <- as.matrix(seqtab_data_tmp)
-    # Output message
-    message("Following samples contain no reads:")
-    message(sprintf("%s", str_c(zero_sample, collapse = " ")))
-    message("Refilled the sequence table by inserting the sample rows with zero.")
-    # Return the refilled seqtab data
-    return(seqtab_data)
-    
-  } else {
-    # Output message
-    message("All samples have at least one ASV/OTU.\nNo need to refill the sequence table.")
-    # Return the original seqtab
-    return(seqtab_data)
-  }
-}
-
-
 # Taxa name summarize function
 taxa_name_summarize <- function(ps_object,
                                 taxa_rank,

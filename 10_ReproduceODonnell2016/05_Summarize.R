@@ -77,11 +77,6 @@ ps_m2 <- ps_m1 %>% group_by_at(c("Sample", target_taxa)) %>%
 ps_m3 <- ps_m1 %>% group_by(Sample, rep_tax) %>%
   summarize(sequence_reads = sum(Abundance)) #%>% filter(sequence_reads > 0)
 
-# Set colors
-#library(cols4all)
-#cols4all::c4a_gui()
-#c4a_palettes(type = "cat", series = "misc")
-
 # Figures
 f1 <- ggplot(ps_m2, aes_(x = as.name("Sample"), y = as.name("sequence_reads"),
                          fill = as.name(target_taxa))) +
@@ -96,16 +91,9 @@ f2 <- ggplot(ps_m3, aes(x = Sample, y = sequence_reads, fill = rep_tax)) +
   theme(axis.text.x = element_text(angle = -90, hjust = 1, vjust = 0.5, size = 6)) + 
   xlab(NULL) + ylab("Sequence reads") +
   scale_fill_igv(name = target_taxa) +
-  #scale_fill_discrete_c4a_cat("cols25", name = target_taxa) +
-  #coord_cartesian(ylim = c(0,10000)) +
   NULL
 
 f3 <- plot_richness(ps_all, measures = "Observed") + xlab(NULL) + theme(axis.text.x = element_text(size = 6))
-
-# Extract top taxa > 100 reads
-#top_taxa <- taxa_names(ps_all)[taxa_sums(ps_all) > 100]
-#ps_top <- prune_taxa(top_taxa, ps_all)
-#f4 <- plot_richness(ps_top, measures = "Observed") + xlab(NULL) + theme(axis.text.x = element_text(size = 6))
 
 
 # --------------------------------------------- #
