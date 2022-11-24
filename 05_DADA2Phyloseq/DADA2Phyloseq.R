@@ -21,6 +21,9 @@ theme_set(theme_cowplot())
 sample_sheet <- read.csv("data_subset/sample_sheet.csv", row.names = 1)
 asv_sheet <- read.csv("data_subset/asv_sheet.csv", row.names = 1)
 tax_sheet <- read.csv("data_subset/tax_sheet.csv", row.names = 1)
+# !! ASV sheet was generated using dada2::dada(..., pooling = FALSE). !!
+# !! Therefore, there is no singlton for each sample, which might introduce biases in subsequent analyses.
+# !! At present, I recommend using dada2::dada(..., pooling = TRUE) for a formal analysis.
 
 
 # ----------------------------------------------- #
