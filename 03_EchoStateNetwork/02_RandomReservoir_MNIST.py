@@ -57,7 +57,8 @@ test_fraction = 0.2
 
 # -------------------- 2. DATA PREPARATION -------------------- #
 # Down MNIST image data if you do not have it
-#mnist = datasets.fetch_openml('mnist_784', version=1,)
+#from sklearn.datasets import fetch_openml
+#mnist = fetch_openml('mnist_784', version=1,)
 #pd.to_pickle(mnist, "data/mnist_downloaded.pkl") # Save MNIST object
 # Load MNIST data
 mnist = pd.read_pickle("data/mnist_downloaded.pkl")
